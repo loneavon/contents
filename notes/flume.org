@@ -1,0 +1,13 @@
+#+TITLE: Flume
+#+DATE: 2015-09-01
+
+* Configuration
+Flume 支持两种配置方式：本地文件配置和 Zookeeper 远程配置。前者不必多说，关
+于后者，我了解了一下，是要在启动 Flume agent 时指定 ZooKeeper 集群和根路径，
+以及一个独一无二的 agent name。
+#+BEGIN_SRC sh
+$ bin/flume-ng agent –conf conf -z zkhost:2181,zkhost1:2181 -p /flume –name a1 -Dflume.root.logger=INFO,console
+#+END_SRC
+
+总的看来，Flume 的这种配置方式相当原始，很不灵活，适合小规模使用。当业务规
+模扩大时，运维压力会很大。

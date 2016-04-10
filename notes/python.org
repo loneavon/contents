@@ -1,0 +1,368 @@
+#+TITLE: Python
+#+DATE: 2014-02-23
+#+KEYWORDS: 正则
+
+* 前言
+在浏览 Google 的一些网页之后，突然再次涌起了学习 Python 的热情。于是我无限期停止了学
+习 Ruby 的进程，开始系统习学习 Python。
+
+我第一次接触 Python 是在 2011 年，那时我在阅读《集体智慧编程》，并照着书敲完了上面是
+所有 Python 代码。之后在工作中也经常会用到 Python 写脚本，每次用的时候，基础语法还好，
+但是一旦用到函数库，我就不得不通过搜索，非常的没效率。我一直想找个机会来进行几轮
+系统的学习。
+
+* 资料搜集
+** 文档
++ [[http://docs.python.org/2/][Python 2.7 文档]]
++ [[http://docs.python.org/2/library/index.html][Python 标准库]]
+
+** 书籍
++ [[http://woodpecker.org.cn/diveintopython/][深入 Python :Dive Into Python 中文版（啄木鸟社区）]]
++ [[http://book.douban.com/subject/3117898/][Python 源码剖析]]
+
+* list 和 dict
+** list 的并集和交集
+求交集：
+#+BEGIN_SRC python
+log_module_ids_unfound = list(set(log_module_ids).difference(set(log_module_ids_found)))
+#+END_SRC
+求并集：
+#+BEGIN_SRC python
+# 等到用上的吧。。
+#+END_SRC
+** 将 tuple 组成的 list 转化为 int 组成的 list
+例如，将 [(1234), (4556), (6543)] 转化为 [1234, 4556, 6543]，前者是用 SQLAlchemy
+select 出来的结果，后者是我们想要的可以接在 where in 语句后面的 list。代码实现如下：
+#+BEGIN_SRC python
+log_module_ids = [t[0] for t in log_module_ids]
+#+END_SRC
+** 复杂 list 的排序
+例如，元素为 dict 的 list，想根据 dict 的某个 key 的值来进行排序。
+#+BEGIN_SRC python
+# 对节点进行排序，将故障节点排在前面
+import operator
+running_nodes.sort(key=operator.itemgetter('log_time', 'update_time'))
+disable_nodes.sort(key=operator.itemgetter('log_time', 'update_time'))
+#+END_SRC
++ [[http://www.the5fire.com/python-sort-dict-in-list-by-time.html][python 对列表中的字典按{key}时间排序]]
+** 实现 list 的分组（group by） <2015-05-25 一>
+
+有个很常见的需求： *对 list 中的元素进行分组统计* 。一个比较低效的做法是，
+遍历这个 list，然后手工构造复杂的字典，并在字典里面存储统计结果。这个构造的
+过程需要很多难看的代码，特别是在字典里取值时，需要判断 key 是否存在。
+
+Python 里有一些内建的函数能帮我们实现类似于 SQL 的 ~group by~ 的功能，借助
+分组后的结果，我们可以写出更优雅的和更简洁的代码。具体地说是使用
+*operator.itemgetter* 和 *itertools.groupby* ，大体步骤如下：
+1. 确定排序和分组的 key（借助 itemgetter）
+2. 将 list 按照 key 进行排序
+3. 对 list 按照 key 执行 groupby，生成 *可以迭代的*  key 以及对应的 group
+4. 迭代处理 key 和 group，分组统计各个 group，保存统计结果
+
+#+BEGIN_SRC python
+from operator import itemgetter
+from itertools import groupby
+
+def minos_overview():
+    ...
+    ...
+    # log_configs 的元素的形式如下：(130, 'xxx_access_log', 1130)
+    log_configs.sort(key=itemgetter(2))
+    products = list()
+    for noah_node_id, log_config_group in groupby(log_configs, itemgetter(2)):
+        product = dict(noah_node_id=noah_node_id)
+
+        logs = list()
+        logs_num = 0
+        for log_config in log_config_group:
+            logs_num += 1
+            logs.append({
+                'log_module_id': log_config[0],
+                'name': log_config[1]
+            })
+
+        product['logs'] = logs
+        product['logs_num'] = logs_num
+        products.append(product)
+#+END_SRC
+
+参考：
+- http://stackoverflow.com/questions/5695208/group-list-by-values
+- https://docs.python.org/2/library/itertools.html
+- [[http://blog.ownlinux.net/2013/10/python-groupby.html][Python 中的 groupby 用法]]
+
+** 获取 list 元素的下标
+方法：使用 list 的 index() 方法。
+
+注意，如果元素在 list 中不存在，则 index() 方法会抛出异常，为了是代码优雅，
+我可以在调用 index() 之前通过 if x in xx 来先做一个判断。
+
+* string
+** 搜索
+* Built-in Functions
+** getattr
+下面例子实现了通过 getattr() 实现打印 Model 的各个字段（各个字段是 Model Object 的
+Attribute）。
+#+BEGIN_SRC python
+log_config = LogConfig.query.filter_by(log_module_id=log_module_id).first()
+for col in log_config.__table__.columns:
+    print col.name, getattr(log_config, col.name)
+#+END_SRC
+** round
+*** float round "bug" <2016-03-13 Sun>
+Python 内置的 round 函数有显而易见 bug，那就是对某些特殊的浮点数进行 round
+时，得到的结果会让人大吃一惊。官方给出的解释是 ~十进制的分布无法准确地用二
+进制分数表示~ 。
+#+BEGIN_EXAMPLE
+Representation error refers to the fact that some (most, actually) decimal fractions cannot be represented exactly as binary (base 2) fractions. This is the chief reason why Python (or Perl, C, C++, Java, Fortran, and many others) often won’t display the exact decimal number you expect:
+#+END_EXAMPLE
+
+虽然这个解释让人无可指摘，但是这个 round 函数的执行结果不符合产品设计里的 ~最小惊讶原则~ 。
+
+** range 和 xrange 的区别 <2016-04-10 日>
+#+BEGIN_SRC python
+for i in range(1000): 
+  pass
+
+for i in xrange(1000): 
+  pass
+#+END_SRC   
+   
+前者会预先生成一个有 1000 元素的列表，而后者则不会预先生成，而是每轮迭代返
+回下一个数值， ~内存占用较小~ 。换句话说，xrange 不返回列表，而是返回一个
+iterable 对象。
+
+* re 模块
++ [[https://www.debuggex.com/][Python 在线正则]]
+** group
++ [[https://docs.python.org/2/library/re.html][re — Regular expression operations]]
+
+下面面的代码利用 re 模块实现了正则查找和捕获，将一行日志中的 pid 字段给捕获
+并打印。
+#+BEGIN_SRC python
+#!/bin/env python
+
+import re
+import sys 
+
+for line in sys.stdin:
+    m = re.search(r"pid=(\d+)&", line)
+    if m != None:
+        pid = m.group(1).strip("\n")
+        print pid 
+#+END_SRC
+
+** groupdict()
+我们经常遇到这样的需求：命名俘获，并转化为字典。于是我们可能会写出这样的代
+码：
+#+BEGIN_SRC py
+  regex = r' +full_name: "(?P<full_name>[^ ]+)"\n +size: (?P<size>[^ ]+)\n +mtime: (?P<mtime>[^ ]+)\n +timestamp: (?P<timestamp>[^ ]+)\
+  m_iter = re.finditer(regex, response, re.S)
+  reader_files = list()
+  for index, m in enumerate(m_iter):
+      reader_file = dict()
+      reader_file['full_name'] = m.group('full_name')
+      reader_file['size'] = int(m.group('size'))
+      reader_file['mtime'] = int(m.group('mtime'))
+      reader_file['timestamp'] = int(m.group('timestamp'))
+      reader_file['inode'] = int(m.group('inode'))
+      reader_file['index'] = int(m.group('index'))
+      reader_files.append(reader_file)
+#+END_SRC
+
+我是，我们可以使用 groupdict() 来将正则匹配结果一键转化为 dict，如下：
+
+#+BEGIN_SRC py
+  regex = r' +full_name: "(?P<full_name>[^ ]+)"\n +size: (?P<size>[^ ]+)\n +mtime: (?P<mtime>[^ ]+)\n +timestamp: (?P<timestamp>[^ ]+)\
+  m_iter = re.finditer(regex, response, re.S)
+  reader_files = list()
+  for index, m in enumerate(m_iter):
+      reader_file = m.groupdict()
+      reader_files.append(reader_file)
+#+END_SRC
+
+这样，代码就相当简洁了。不过，有个美中不足之处，就是无法对每个字段进行精细
+的处理了。
+
+* 命令行解析
+使用 optparse 库。
+#+BEGIN_SRC python
+from optparse import OptionParser
+parser = OptionParser()
+parser.add_option('--base_date', dest='base_date', help='Which date you want to statitics?')
+parser.add_option('--force_refresh', dest='force_refresh', default=True,
+                  help='If statitics exists in db, do you want to refresh them?')
+(options, args) = parser.parse_args()
+if options.base_date is None:
+    logging.error('--base_date is required')
+    sys.exit(-1)
+#+END_SRC
+* pycurl
+** curl 与 ftp
+通过 curl 配合 ftp，能实现不登陆机器就能方便地实现一些文件系统操作。如下面几行代码
+实现了远程 ls 一个指定目录的功能：
+#+BEGIN_SRC python
+# ftp_dir 变量的格式例如：ftp://ftp.cn.freebsd.org/pub/FreeBSD/
+def list_directory(ftp_dir):
+    buf = cStringIO.StringIO()
+    c = pycurl.Curl()
+
+    c.setopt(c.URL, ftp_dir)
+    c.setopt(c.WRITEFUNCTION, buf.write)
+    c.setopt(pycurl.TIMEOUT, 1)
+    c.perform()
+
+    file_list = buf.getvalue()
+    buf.close()
+    return file_list
+#+END_SRC
+** 超时设置
+curl 是一种网络交互过程，这种过程必须要考虑超时设置。
+设置方法如下：
+#+BEGIN_SRC python
+# 设置超时为 1 秒
+c.setopt(pycurl.TIMEOUT, 1)
+#+END_SRC
+* datetime
+** timedelta
+两个 datetime 相减就能得到一个 timedelta，所以要想得到两个 datetime 相差的秒数，可以
+拿它们相减，并对得到的 timedelta 调用 seconds 方法。下面例子演示了对数据库表中的
+DateTime 类型字段取它们相差的秒数：
+#+BEGIN_SRC python
+data_slices = engine.execute('SELECT base_time, end_time, ready_time, data_size FROM data_slice '
+                                     'WHERE log_module_id = ' + str(log_module_id) +
+                                     ' AND DATE(base_time) = "' + base_date + '"')
+
+for data_slice in data_slices:
+    # slice_delay_time = (data_slice.ready_time - data_slice.end_time).seconds 
+    slice_delay_time = (data_slice.ready_time - data_slice.end_time).total_seconds()
+#+END_SRC
+说明：应该使用 total_seconds()，seconds 得到的差值不包括天数。
+** string -> datetime -> timestamp
+#+BEGIN_SRC python
+datetime_start = "2014-07-29 18:00:00"
+datetime_end = "2014-07-29 19:00:00"
+timestamp_start = int(time.mktime(datetime.datetime.strptime(datetime_start, '%Y-%m-%d %H:%M:%S').timetuple()))
+timestamp_end = int(time.mktime(datetime.datetime.strptime(datetime_end, '%Y-%m-%d %H:%M:%S').timetuple()))
+#+END_SRC
+
+感想：很坑爹，很丑陋，调用了 N 多时间相关的函数。
+
+** 案例：给出两个时间点和一个时间间隔，求生成所有时间点
+解法：先将两个时间点生成 2 个 datetime，然后将一个时间间隔生成 1 个 timedelta，然后利
+用 datetime 之间可以比较，datetime 和 timedelta 可以互相加减的特性来循环生成。
+#+BEGIN_SRC python
+start_time = datetime.datetime.strptime(form.start_time.data, '%Y-%m-%d %H:%M')
+end_time = datetime.datetime.strptime(form.end_time.data, '%Y-%m-%d %H:%M')
+time_delta = datetime.timedelta(minutes=5)
+cur_time = start_time
+while cur_time <= (end_time - time_delta):
+    print cur_time.strftime('%Y-%m-%d %H:%M:%S')
+    cur_time += time_delta
+#+END_SRC
+** 案例：利用 timetuple 来对 datetime 进行按某一时间间隔取整 
+#+BEGIN_SRC python
+# 需要先对 start_time 按通知周期进行取整，天级以下的分钟位，秒位都置零， 天级的还要额外地 把小时位也置零
+start_tt = start_time.timetuple()
+if log_config.notify_interval >= 1440:
+    cur_time = datetime.datetime(start_tt.tm_year, start_tt.tm_mon, start_tt.tm_mday,
+                                 0, 0, 0, 0)
+else:
+    cur_time = datetime.datetime(start_tt.tm_year, start_tt.tm_mon, start_tt.tm_mday,
+                                 start_tt.tm_hour, 0, 0, 0)
+#+END_SRC
+* 日志打印 logging
+** 如何配置 format
+#+BEGIN_SRC python
+logging.baseConfig(format='%(levelname)s%(asctime)s %(filename)s:%(lineno)d] %(message)s', datefmt='%m%d %H:%M:%S'))
+#+END_SRC
+全部可配置的参数在这里：
++ [[https://docs.python.org/2/library/logging.html#logrecord-attributes][LogRecord attributes]]
+
+* 调用子进程
+Python 里有 N 种方法调用子进程，我自己就用过 os.system 和 os.popen3，此外还有
+subprocess 和 commands。
+
+我有个需求，就是在 Python 中调用公司一个命令行工具来获取某个 Naming Service 的全部实例的
+信息。我关注的是调用的返回状态码（用以判断调用成功与否），和标准输出信息（进一步
+解析，返回给前端），我注意到了 commands，发现它完美契合我的需求，并且据 [[http://blog.csdn.net/menglei8625/article/details/7494094][此文]] 的说
+法说还有 *不阻塞* 的特性（但经过我的测试，发现 *不阻塞* 纯属妄想）
+
+顺带说一句，公司环境下有这个命令行，但是我在我的 Mac 下开发，没有这个命令行，于是
+我机智地 Mock 了一把。如下：
+#+BEGIN_SRC sh
+sudo vi /bin/get_instance_by_service
+
+echo "xx-xx-xxxxxxx00.xx 10.0.0.29 xxxx-xxxxxxx-xxxxx.XX.xxx 0 0                                    
+tc-mo-xxx.tc 10.26.198.51 xxx.XX.xx 404 0                                                            
+tc-mo-xxx.tc 10.26.198.71 xxx.XX.xx 404 0"
+#+END_SRC
+
+** commands
+
+* 问题记录
+** Mac 下 pip 安装一些模块失败，报"clang: error"
+我在 Mac 安装 PIL，但是总是失败。错误信息如下：
+#+BEGIN_SRC sh
+sudo pip install Pillow 
+Downloading/unpacking Pillow
+  Downloading Pillow-2.4.0.zip (6.5MB): 6.5MB downloaded
+  Running setup.py egg_info for package Pillow
+...
+...
+clang: error: unknown argument: '-mno-fused-madd' [-Wunused-command-line-argument-hard-error-in-future]
+
+clang: note: this will be a hard error (cannot be downgraded to a warning) in the future
+
+error: command 'cc' failed with exit status 1
+
+----------------------------------------
+Cleaning up...
+...
+#+END_SRC
+
+用网上找到了 N 多方法尝试都无法解决此问题，最后，终于找到了这篇文章：
++ [[http://bruteforce.gr/bypassing-clang-error-unknown-argument.html][Bypassing “clang: error: unknown argument”]]
+
+并按照这篇文章提供的解法来安装，终于成功。
+#+BEGIN_SRC sh
+sudo ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future  pip install pillow
+#+END_SRC
+
+该问题的原因是： *Mac 的 LLVM compiler 升级新版后，将识别不了的命令行参数
+当成错误* 。这个改动导致了很多通过 pip 安装的 Python 模块和通过 gem 安装的
+Ruby 包发生了安装失败的问题。
+
+这里我不得不吐槽一下 Mac，在非 Xcode 开发的环境兼容性的处理上 *不够严肃*
+（相对一些 Linux 发行版）。
+
+** bad interpreter: Permission denied
+我在公司的机器上安装 percol，装好一运行，出现如下结果：
+#+BEGIN_SRC sh
+[work@cq01-xxxxxxx-xxxx327.cq01 master]$ percol
+-bash: /home/work/.xxxxx/bin/percol: /home/users/zhongyi/.xxxxx/bin/python: bad interpreter: Permission denied
+#+END_SRC
+
+怀疑是 Python 解释器环境配置问题，于是打开*/home/work/.xxxxx/bin/percol*
+，发现该 Python 脚本的第一行写着：
+#+BEGIN_SRC python
+#!/home/users/zhongyi/.xxxxx/bin/python
+#+END_SRC
+
+我将它改成如下行后，问题解决！
+#+BEGIN_SRC python
+#!/bin/env python
+#+END_SRC
+
+** ascii codec can t decode byte 0xef in position 0 ordinal not in range 128
+解法：
+#+BEGIN_SRC python
+import sys 
+reload(sys) 
+sys.setdefaultencoding('utf8') 
+#+END_SRC
++ [[http://www.cnblogs.com/DjangoBlog/p/3543430.html]]
+* 学习回顾 
+** 或许我需要的只是背诵一下 API，以及一个能自动提示的 IDE <2014-02-23 日>
+翻几本 Python 书，发现都眼熟的很，可看的不多。
+

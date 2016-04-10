@@ -1,0 +1,31 @@
+#+TITLE: D3.js: Data-Driven Documents
+#+DATE: 2016-01-09
+
+* 前言
+一直以来我在 Web 页面上画图使用的都是 Highcharts/ECharts/ChartJS 等 JS 库，
+它们用法大同小异，都是传递以 ~格式复杂的 JSON 数据~ 和 ~形式更为复杂的选项~
+的来实现画图。个人感觉这些画图库存在着一些劣势：
+1. 配置琐碎，易于上手，当时想进一步提升开发效率却不易（即难于精通）
+2. 难以精确控制
+3. 绘图效果比较不够理想（ChartJS 除外，可惜它功能略简单）
+4. 有的场景存在性能问题
+   
+这几天在实现 [[./tms-v2.org][TMS V2]] ，在思考如何展示 TMS 时，觉得我需要更强大的绘图工具。我
+一直以来都觉得 [[https://github.com/torvalds/linux/graphs/contributors][GitHub Graph]] 绘图效果很不错，经过多方调研，在 [[http://stackoverflow.com/questions/14507778/github-contributions-graph][这里]] 得知
+GitHub 是使用 D3 来绘制的。
+
+于是，我开始学习 D3。
+
+* 资料收集
+- http://d3js.org/
+- https://github.com/mbostock/d3
+- [[https://github.com/mbostock/d3/wiki/API--%25E4%25B8%25AD%25E6%2596%2587%25E6%2589%258B%25E5%2586%258C][D3 API 中文手册]]
+
+** 文章
+- [[http://vegibit.com/create-a-bar-chart-with-d3-javascript/][Create A Bar Chart With D3 JavaScript]]
+* 回顾
+** 使用 D3 画了 TMS Calendar <2016-01-10 日>
+第一次使用 D3 画图，感觉良好！
+
+#+CAPTION: ./imgs/d3js_20160110020323.png
+[[./imgs/d3js_20160110020323.png]]

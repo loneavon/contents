@@ -1,0 +1,36 @@
+#+TITLE: Webpack
+#+DATE: 2016-03-12
+
+* 资料收集
+- [[http://webpack.github.io/]]
+
+- [[http://jslog.com/2014/10/02/react-with-webpack-part-1/][React with webpack - part 1]] 
+- [[http://zhuanlan.zhihu.com/FrontendMagazine/20367175][Webpack 傻瓜式指南（一）]]
+- [[-%20%5B%5Bhttp://www.infoq.com/cn/articles/react-and-webpack%5D%5B%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%20React%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9AReact%20%E5%BC%80%E5%8F%91%E7%A5%9E%E5%99%A8%20Webpack%5D%5D%0A][Antd webpack.config.js 配置举例]]
+
+* 问题记录
+** Uncaught ReferenceError: ReactDOM is not defined
+#+CAPTION: ./imgs/webpack_20160312141759.png
+[[./imgs/webpack_20160312141759.png]]
+
+出错分析：未引入 ~react-dom~ 
+
+解决方法：
+1. 安装 react-dom，在项目根目录执行 ~npm install --save-dev react-dom~
+2. 依赖 react-dom，在 js 文件里加上 ~var ReactDOM = require('react-dom')~ 
+
+** Only a ReactOwner can have refs. You might be adding a ref to a component ...
+#+BEGIN_SRC sh
+Uncaught Invariant Violation: addComponentAsRefTo(...): Only a ReactOwner can have refs. You might be adding a ref to a component that was not created inside a component's `render` method, or you have multiple copies of React loaded (details: https://fb.me/react-refs-must-have-owner).
+#+END_SRC
+
+我怀疑，是由于我通过 require 来引入组件，并将之传入到 render 方法里导致的。
+#+BEGIN_SRC js
+// import { DatePicker } from 'antd';
+var DatePicker = require('antd/lib/date-picker')
+ReactDOM.render(<DatePicker />, document.getElementById('content'));
+#+END_SRC
+挺烦的，先不搞 Webpack 吧。
+
+** Module build failed: Error: Parse Error: Line 4: Illegal import declaration
+挺烦的，先不搞 Webpack 吧。

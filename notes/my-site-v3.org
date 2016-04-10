@@ -1,0 +1,16 @@
+#+TITLE: 个人网站 V3
+#+DATE: 2016-04-03
+
+* 前言
+Emacs Org-mode + Nanoc 用了几年，感觉有点慢了，有点成为了我的阻碍。我要亲手
+打造一个更顺畅的工作流。
+
+参考：
+- [[file:my-site-v2.org]]
+- [[file:my-ssg.org]]
+  
+* 资料收集
+- http://sass-lang.com/guide
+- [[http://compass-style.org/help/tutorials/best_practices/][Scss Best Practices]]
+
+

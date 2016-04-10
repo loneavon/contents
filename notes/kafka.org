@@ -1,0 +1,16 @@
+#+TITLE: Kafka 
+#+DATE: 2012-03-23
+#+KEYWORDS: 日志收集
+
+* Introduction
+借助 Kafka 来了解 Bigpipe。
+
+* 资料收集
+- [[http://tech.meituan.com/kafka-fs-design-theory.html][Kafka 文件存储机制那些事 - 美团技术团队]]
+- [[http://shift-alt-ctrl.iteye.com/blog/1930345][Apache kafka 原理与特性(0.8V)]]
+
+* 存储引擎设计
+** 分段和索引
+将索引文件按照 message id 分段，并且文件名就是起始 message id 的名字。
+
+单个索引文件记录了各个 message id 和在数据文件里的位置。

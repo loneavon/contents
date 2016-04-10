@@ -1,0 +1,79 @@
+#+TITLE: TMS V2 设计和开发
+#+DATE: 2016-01-01 
+
+* 前言
+15 年年初我基于 Emacs Org-mode 设计了我的时间管理系统（称之为 TMS V1 吧），
+自 15 年 3 月开始实施，到今天已经是 8 个多月了。现在看来，它完全达到了我预
+期的效果，我对时间的把控和利用能力，以及做事情的规划能力都有了显著的提升，
+并且这 8 个月我每时每刻做了什么，以及耗时分布都记录在这些 org 文件里面了，
+五十年后这些记录仍然存在，它们将会持续地体现出大数据的价值。
+
+现在，我要开始做 TMS V2。TMS V2 要达成的目标的包括：
+1. 将每日规划和 TODO 管理从 Evernote 上彻底迁移到 org 上：
+   - Mac 上的 Evernote 越来越慢了，并且全无改进的希望，我不想再多依赖它了
+2. 自动导出每周的周报和耗时分布：
+   - 我再也不想完全手工写周报了
+3. 自动导出每月和每年的时间报表和项目进展
+   - 我再也不想完全手工写年度自评和半年自评了
+4. 每日时间统计（实时）：
+   - 每当我害怕今日虚度时，我都可以立刻通过打开一个页面，获知我今日的时间
+     开销统计
+   - 本日已工作 xx 小时，学习 xx 小时，当前在做 xx 事已持续 xx 小时
+   - 最近数月每日时间利用情况（模仿 github 个人主页，用颜色深浅不一的小方格
+     和平滑的曲线来展示）
+5. 提升项目排期能力，将时间预估作为核心要素纳入到 V2 中
+6. 不仅纳入时间预估，并且能做好每日每周每月的时间开销分布做好规划，作为 KPI
+7. 定期归档，提升 V2 的运行速度
+8. 重构我的事情体系
+9. 通过网页或者 App 实现外出时的计时
+
+* 归档
+要点：
+- 主文件名：time.org
+- 每年一个归档文件，以年份作为命名，如 2015.org
+- 每月 Review 时手动做一次归档，将已经完成的二级事情或者三级事情移动到当年
+  的文件里（如 2015.org）
+
+参考：
+- http://orgmode.org/manual/Archiving.html#Archiving
+- http://doc.norang.ca/org-mode.html#Archiving
+
+* 统计分析
+要实现多样的统计分析需求，需要一个强大的中间数据集，这时我（再次）想到了数
+据库。那就掏出 Python/Flask/SQLAlchemy/... 等物，开撸吧！
+
+#+BEGIN_SRC python
+# 核心 Model：计时项
+class ClockItem(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    start_time = db.Column(db.DateTime, nullable=False)
+    end_time = db.Column(db.DateTime, nullable=False)
+    start_hour = db.Column(db.Integer, nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+    year = db.Column(db.Integer, nullable=False)
+    month = db.Column(db.Integer, nullable=False)
+    iso_year = db.Column(db.Integer, nullable=False)
+    week_num = db.Column(db.Integer, nullable=False)
+    weekday = db.Column(db.Integer, nullable=False)
+
+    thing = db.Column(db.String(1024), nullable=False)
+    time_cost = db.Column(db.Integer, nullable=False)  # In minute unites
+    level = db.Column(db.Integer, nullable=False)
+    type = db.Column(db.String(1024), nullable=False)
+    project = db.Column(db.String(1024), nullable=False)
+#+END_SRC
+
+#+BEGIN_SRC sql
+# 按月统计耗时
+select year, month, sum(time_cost)/60 from clock_item group by year, month;
+# 按周统计耗时
+select iso_year, week_num, sum(time_cost)/60 from clock_item group by iso_year, week_num;
+#+END_SRC
+* 周报自动生成
+
+本周尝试从 TMS 导出本周周报，发现效果不好。改进思路：
+- 运维这块比重太大，且是黑盒子，需要细化为各个具体问题排查
+- 各个问题排查的排查结果和 Jira 跟进没有记录在 TMS 里面
+- 一些事情耗时很低但是值得记录再周报里，但是它们没有在 TMS 里（看来确实的要一个工作计划了）
+- 特别地：需要每周开始前，拟定本周计划，先计划再按计划工作，而不是先工作再梳理做了啥
+* 前端开发

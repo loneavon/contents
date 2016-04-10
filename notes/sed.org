@@ -1,0 +1,24 @@
+#+TITLE: Sed
+#+DATE: 2015-01-01
+#+KEYWORDS: 正则
+
+* 实例
+| 命令 | 功能 |
+|------+------|
+| sed -ig "s/^\(\*\{1,6\}\) /\1* /" flask.org     | 将一篇文本里以*开头的行的前面加一个*  |
+| sed -ig "s/^\*\(\*\{1,6\}\) /\1 /" flask.org     | 将一篇文本里以**开头的行的前面减一个*  |
+|      |      |
+|      |      |
+
+** 将笔记中的 ./imgs/ 改为 ./imgs/
+第一步，找到它们！   
+#+BEGIN_SRC sh
+sed -n "/\/img\//p" notes/*.org
+#+END_SRC
+
+第二步：批量替换
+#+BEGIN_SRC sh
+sed -ig "s/\/img\//\/imgs\//" notes/*.org
+#+END_SRC
+
+第三步：确定结果 

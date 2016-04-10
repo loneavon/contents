@@ -1,0 +1,11 @@
+#+TITLE: Mac
+#+DATE: 2015-09-03
+
+记录一下 Mac 的使用经验和常用软件
+
+* OmniDiskSweeper - 磁盘空间占用分析
+- https://www.omnigroup.com/more
+  
+
+#+CAPTION: ./imgs/mac_20150903100245.png
+[[./imgs/mac_20150903100245.png]]

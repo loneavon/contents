@@ -1,0 +1,55 @@
+#+TITLE: Fabric
+#+DATE: 2014-06-17
+#+KEYWORDS: Linux 工具
+
+* Introduction
+为了更轻易地部署 Minos Master，并让它们的环境保持一致，我尝试了传说中的 Fabric，发
+现收益惊人，有相见恨晚之感！
+
++ [[http://wklken.me/posts/2013/03/25/python-tool-fabric.html][PYTHON FABRIC 实现远程操作和部署]]
+
+* 远程 copy 文件
+可利用 put，put 的第一参数是本地文件路径，第二参数是远程文件路径。如下：
+#+BEGIN_SRC python
+from fabric.api import run, put 
+
+def vimrc():                                                                                           
+  run('rm -rf ~/.vimrc ~/.vim')                                                                        
+  put('~/.vimrc', '~/')                                                                                
+  put('~/.vim', '~/')  
+#+END_SRC
+
++ [[http://stackoverflow.com/questions/5314711/how-do-i-copy-a-directory-to-a-remote-machine-using-fabric][How do I copy a directory to a remote machine using Fabric?]]
+
+* 并行
+#+BEGIN_SRC python
+from fabric.api import run, parallel
+
+@parallel                                                                                              
+def install_vim():                                                                                     
+  run('jumbo install vim')  
+#+END_SRC
+   
++ [[http://www.vpsee.com/2012/10/manage-tasks-with-fabric-on-mutiple-servers/][使用 Fabric 批量执行服务器任务]]
+
+* 以库的方式调用
++ [[http://docs.fabfile.org/en/1.10/usage/library.html][Fabric Library Use]]
+  
+| 功能                       | 接口 |
+|----------------------------+------|
+| 每次为任务单独指定运行机器 | execute(X, hosts=Y) # X is Task |
+|                            |      |
+|                            |      |
+|                            |      |
+*** 感受
+如果是想单纯地在指定某台机器上执行命令的话，Paramiko 更加好用，Fabric 反倒是
+增加了许多无谓之举。
+* 回顾
+** 神器，无疑  <2014-06-17 Tue>
+我轻易地写出了一些远程批量部署的脚本，让这批机器环境比之前整洁了很多。相对于以前
+用的 python-expect 等工具，Fabric 先进了一代，写脚本既简单，写出来也易维护。使用
+Fabric 本身就是一个赏心悦目的过程。
+
+感谢前辈大神做出这样的工具，让我等大大受益。
+
+

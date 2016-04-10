@@ -1,0 +1,15 @@
+#+TITLE: HTML 和 CSS
+#+DATE: 2015-01-18
+#+KEYWORDS: HTML, CSS, 前端
+
+* Tips: 设置 height: 100% 导致 body 与屏幕等高而不是和全部页面等高
+解法：去掉 height: 100%
+
+* CSS 选择
+- div > a 选择的是 div 子节点中的 a 节点
+- div a 选择的是 div 的后代节点中的 a 节点
+- div, a 选择的 div 节点和 a 节点
+
+** 兄弟选择器
+- + 是选择相邻兄弟
+- ~ 是选择通用兄弟（不需要相邻）

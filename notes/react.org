@@ -1,0 +1,57 @@
+#+TITLE: React: A JavaScript Library for Building User Interfaces.
+#+DATE: 2015-12-30
+
+* 资料收集
+- [[https://github.com/facebook/react/wiki/Complementary-Tools]]
+- https://github.com/facebook/react/wiki/Examples
+- https://react.rocks/ （各种炫酷的例子）
+
+** React UI
+- [[http://www.material-ui.com/][React Material-UI]]
+- [[http://ant.design/][React Ant Design]]
+- [[http://reapp.io/][reapp]]
+
+** 文章
+- [[https://facebook.github.io/react/blog/2013/06/05/why-react.html][Why did we build React?]]
+- [[https://blog.risingstack.com/from-angularjs-to-react-the-isomorphic-way/][From AngularJS to React: The Isomorphic Way]]
+- [[https://github.com/my-fe/wiki/issues/1][百度母婴技术团队—基于 Reactjs 实现 webapp]]
+- [[https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51][Angular 2 versus React: There Will Be Blood]]
+
+** 工具
+- https://github.com/reactjs/react-python
+
+** 库
+- https://github.com/rackt/react-router
+- https://facebook.github.io/fixed-data-table/ （针对大数据集的可排序、可过
+  滤的数据表）
+
+* 安装
+先安装 react 和 babel：
+#+BEGIN_SRC sh
+bower install react
+bower install babel
+#+END_SRC
+
+再引入下面三个 js 文件（注意：不能缺少 babel/browser.min.js，否则不认识
+~text/babel~ 标签，无法将 JSX 转化为 JS）
+#+BEGIN_SRC html
+    <script src="/static/bower_components/react/react.min.js"></script>
+    <script src="/static/bower_components/react/react-dom.min.js"></script>
+    <script src="/static/bower_components/babel/browser.min.js"></script>
+#+END_SRC
+
+* React SSG
+- [[http://jxnblk.com/writing/posts/static-site-generation-with-react-and-webpack/][Static Site Generation with React and Webpack]]
+- [[http://braddenver.com/blog/2015/react-static-site.html][React Static Site]]
+
+* 初学
+- React.Children.map 的遍历处理
+- state 和 props 的区别
+* Webpack
+
+* 回顾
+** React 的社区让我震惊 <2016-02-20 六>
+以前在使用 AngularJS 时，感觉第三方组件很少，且完成度大都不高。而今天在了解
+React 时，搜了一下 React UI，搜到了一大堆高能玩意儿，如 Material UI，Ant
+Design，reapp 等，真是琳琅满目，让我头晕目眩。其组件之丰富和炫酷，其完成度之高，
+让我震惊。这是一股强大的力量。

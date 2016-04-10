@@ -1,0 +1,37 @@
+#+TITLE: Jinja Template System
+#+DATE: 2014-07-30
+#+KEYWORDS: HTML
+
+* 内置函数/过滤器
+** 数值取整
+使用内置的 round 函数。用法如下：
+#+BEGIN_SRC python
+{% if data_slice.data_size > 512 * 1024 * 1024 %}
+    {{ (data_slice.data_size / (1024 * 1024 * 1024)) | round(2) }} GB
+{% endif %}
+#+END_SRC
+
+Jinja 内置函数的使用模式基本都是如上的 filter 风格。参考：[[http://jinja.pocoo.org/docs/templates/#list-of-builtin-filters][Template Designer Documentation]]
+* Macros
++ [[http://jinja.pocoo.org/docs/dev/templates/#macros]]
+** 用法示例：
+在 _macros.html  中定义：
+#+BEGIN_SRC html
+{% macro render_tablersorter_filter(filter_id) %}
+<input class="search selectable pull-right" id="{{ filter_id }}" type="search" placeholder="Search" data-column="all">
+{% endmacro %}
+#+END_SRC
+
+在 product_line.html 里使用，为一个 table 加上 filter（过滤/搜索框）：
+#+BEGIN_SRC html
+<div class="page-header">
+    <h3> 
+    日志列表 
+    {{ macros.render_tablersorter_filter('table_filter') }}
+    </h3>
+</div>
+#+END_SRC
+[[./imgs/jinja_1.png]]
+
+
+* 
