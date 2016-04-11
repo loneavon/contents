@@ -35,6 +35,35 @@ core。
 
 ** 超时参数设得太小（可能）会导致访问失败
 
-* 学习回顾
+* 回顾
 ** 看一眼 ZK 官方文档 <2014-03-08 六>
 发现文档不够通顺，可能是非英语国家人士撰写的。
+** 使用 Kazoo 操作 ZooKeeper <2016-04-11 一>
+- [[https://kazoo.readthedocs.org/en/latest/index.html][Kazoo Docs]]
+
+今天 OP 告诉我系统的 ZK 的 Snaoshot 超过 1G，让我清理一下。于是我找了一个
+叫做 Kazoo 的 Python 库进行操作。
+
+#+CAPTION: ./imgs/zookeeper_20160411230553.png
+[[./imgs/zookeeper_20160411230553.png]]
+
+Kazoo 的用法很简单：
+#+BEGIN_SRC python
+from kazoo.client import KazooClient
+
+# Connection Handling
+zk = KazooClient(hosts='127.0.0.1:2181')
+zk.start()
+
+# Reading Data
+if zk.exists("/my/favorite"):
+    # Do something
+data, stat = zk.get("/my/favorite")
+children = zk.get_children("/my/favorite")
+
+# Updating Data
+zk.set("/my/favorite", b"some data")
+
+# Deleting Nodes
+zk.delete("/my/favorite/node", recursive=True)
+#+END_SRC

@@ -173,9 +173,9 @@ body.gallery {
 
   .Images {
     margin: 0 75px;
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
+//    -webkit-column-count: 3;
+//    -moz-column-count: 3;
+//    column-count: 3;
     -webkit-column-gap: 25px;
     -moz-column-gap: 25px;
     column-gap: 25px;
@@ -187,6 +187,7 @@ body.gallery {
   .Image {
     display: inline-block;
     margin-bottom: 25px;
+    margin-right: 25px;
     position: relative;
     cursor: -webkit-zoom-in;
     cursor: zoom-in;
@@ -228,8 +229,14 @@ body.gallery {
     text-shadow: 0 1px 2px black;
   }
 
+  #img1{
+    width: 200px;
+    height: 200px;
+
+  }
+
   .Image img {
-    width: 100%;
+//    width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
     background: #111;
   }
