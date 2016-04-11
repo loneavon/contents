@@ -237,18 +237,6 @@ body.gallery {
     background: #111;
   }
 
-  img {
-    margin-bottom: 25px;
-    margin-right: 25px;
-    width: 360px;
-    height: 360px;
-  }
-
-  #img1, #img2, #img3{ width: 270px; }
-  #img4, #img11, #img13{ width: 480;  }
-  #img9{ width: 270px; }
-  #img12, #img10{ width: 480px; }
-
   .Image:hover {
     opacity: 1 !important;
   }

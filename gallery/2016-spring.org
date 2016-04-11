@@ -1,0 +1,8 @@
+#+TITLE: 2016 ‧ 春
+#+DATE: 2016-04-11
+
+#+CAPTION: ./imgs/2016-spring_20160411005902.png
+[[./imgs/2016-spring_20160411005902.png]]
+
+#+CAPTION: ./imgs/2016-spring_20160411010216.png
+[[./imgs/2016-spring_20160411010216.png]]
