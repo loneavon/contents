@@ -229,17 +229,25 @@ body.gallery {
     text-shadow: 0 1px 2px black;
   }
 
-  #img1{
-    width: 200px;
-    height: 200px;
-
-  }
-
   .Image img {
+    width: 360px;
+    height: 360px;
 //    width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
     background: #111;
   }
+
+  img {
+    margin-bottom: 25px;
+    margin-right: 25px;
+    width: 360px;
+    height: 360px;
+  }
+
+  #img1, #img2, #img3{ width: 270px; }
+  #img4, #img11, #img13{ width: 480;  }
+  #img9{ width: 270px; }
+  #img12, #img10{ width: 480px; }
 
   .Image:hover {
     opacity: 1 !important;
