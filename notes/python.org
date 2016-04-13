@@ -362,6 +362,24 @@ reload(sys)
 sys.setdefaultencoding('utf8') 
 #+END_SRC
 + [[http://www.cnblogs.com/DjangoBlog/p/3543430.html]]
+** 当前目录中遗留的 .pyc 文件导致的 No module named xxx <2016-04-13 三>
+我想使用 Evernote 的 API 来访问我的笔记，一开始，写了一个名字为
+~evernote.py~ 的脚本，一运行，连 from evernote.edam.userstore import
+UserStore 运行都失败，我立刻意识到，我的脚本文件命名有问题，我将之改为
+~get_evernote.py~ 。
+
+再次运行，发现仍然报错，报的还是同样的错误。这时我就感到奇怪了，我通过 pip
+安装的 evernote 稳稳地放在了 ~/Library/Python/2.7/site-packages/~ 下面了呀，
+肿么可能有差错？我百思不得其解，不得不先干点别的事情避避风头。
+
+吃饭晚饭我再次看这个问题，这是我发现了玄机，原来我的当前目录下还遗留一个名
+叫做 ~evernote.pyc~ 的文件，Python的import 看来是优先找到这个名为evernote
+的.pyc文件了！
+
+看来，Python的import还是有不小的坑的，如果改进，我会先判断.pyc对应的py文件
+是否对当前目录存在，如果不存在，则认定.pyc文件无效，并尝试到下一个目录进行
+import。
+
 * 学习回顾 
 ** 或许我需要的只是背诵一下 API，以及一个能自动提示的 IDE <2014-02-23 日>
 翻几本 Python 书，发现都眼熟的很，可看的不多。

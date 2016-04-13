@@ -135,10 +135,12 @@ result = highlight(code, lexer, formatter)
 <p style="font-size:25px" class="center"><strong>目录</strong></p>
 #+END_HTML
 
-** DONE 如何匹配位于行首或行末 bold/italic/_underlined 等行内元素
+** DONE 如何匹配位于块级元素头部或者末尾的 bold/italic/_underlined 等行内元素
 存在问题：
 1. 行首或者行末的 emphasis 缺少空格
 2. 当前的先细切再匹配的方式导致行首和行末没有特殊的标志。
+
+** 如何匹配位于 \n 后面的 bold/italic/_underlined 等行内元素
 
 ** 嵌套列表和 dl/dt 的支持
 尚未实现
@@ -167,6 +169,7 @@ clock_item = re.compile(
     r'^ *CLOCK: +[\[<]([^\]]+)[\]>](?:--[\[<]([^\]]+)[\]>] +=> +([\d:]+) *)?\n?'
 )
 #+END_SRC
+** 
 * 回顾
 ** 完成了列表和表格的解析和转化，块级元素基本齐备，转出来的网页基本能看了 <2016-03-27 日>
 学习了很多正则的知识，很有收获，以前对于正则的应用是不需要这么深入。毕竟要
