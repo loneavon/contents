@@ -1,5 +1,6 @@
 #+TITLE: Gallery
 #+DATE: 2016-04-10
 
+[[./gallery/playground.org]]
 
-
+[[./gallery/2016-spring.org]]
