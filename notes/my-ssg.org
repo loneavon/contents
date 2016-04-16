@@ -109,6 +109,8 @@ if __name__ == '__main__':
 经过了解，很遗憾，Sphinx 并非基于静态网页和 Javascript 实现全文搜索，而是通
 过后端起一个 Web 服务来实现全文搜索。
 
+- [[http://blog.caoyue.me/post/whoosh-search][Whoosh 全文搜索]]
+
 * 问题记录
 ** TODO 如何将项目根目录加入 PYTHONPATH
 临时解法：
