@@ -60,7 +60,6 @@ extension， ~update_time~ ，content 等，还有一些扩展的属性。还需
 所谓路由，就是为每个 Item 寻找一个模板，寻找一组 Filters，并且输出为跟其
 uri 相关联的某个路径的一组文件。
 
-
 * 自动刷新
 调研了一下 Flask 是如何实现自动刷新的，发现它依赖 werkzeug 的 serving.py。
 详细了解了一下，werkzeug 会判断是否有 pyinotify。如果有则使用它，如果没有，
