@@ -1,2 +1,0 @@
-#+TITLE: Angular2
-#+DATE: 2015-08-14
