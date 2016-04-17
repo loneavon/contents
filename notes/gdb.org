@@ -1,3 +1,0 @@
-#+TITLE: GDB - The GNU Project Debugger
-#+DATE: 2015-09-05
-
