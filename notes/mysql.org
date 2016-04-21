@@ -170,6 +170,18 @@ alter table comment drop created_at_old;
 2. 通过 LOAD DATA LOCAL INFILE 't1slice.txt' INTO TABLE t2; 来将该文件的内容
    导入到表 2 里面
 
+** 解决导入导出时的中文乱码问题 <2016-04-21 四>
+要点：
+1. 通过mysqldump导出
+2. 导入时，先登录数据库，注意加上 ~--default-character-set=utf8~ 参数
+3. 登陆后，执行 ~set names 'utf8';~ ，再执行 ~source xxx.sql~ 
+   
+说明：其实 ~--default-character-set=utf8~  和  ~set names 'utf8';~ 效果等价，
+执行其中一个即可避免乱码。
+
+参考：
+- [[http://makandracards.com/makandra/595-dumping-and-importing-from-to-mysql-in-an-utf-8-safe-way][Dumping and importing from/to MySQL in an UTF-8 safe way]]
+
 * MySQL 的安装
 ** 启动 mysqld
 修改配置中的服务器端口号为 8306（为了让外网能访问公司的 mysqld），然后执行 mysqld，
