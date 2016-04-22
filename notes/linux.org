@@ -215,8 +215,8 @@ popen()返回 NULL 导致的 coredump 问题。
 
 解法就是修改 */etc/security/limits.conf* 文件，在尾部加入：
 #+BEGIN_SRC sh
-,*           soft    nofile          204800
-,*           hard    nofile          204800
+*           soft    nofile          204800
+*           hard    nofile          204800
 #+END_SRC
 
 然后保存文件，退出 ssh，再重新用 ssh 登陆，用 ulimit -n 观察，发现最大打开文
