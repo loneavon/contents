@@ -726,6 +726,10 @@ Python 的 logging 库支持将邮件发送，并可以指定日志等级大于�
 ** Angular.js with Flask
 如果哪天我要使用 Angular.js 的话，就再详细读一下下面的文章吧。
 + [[http://stackoverflow.com/questions/11522151/typical-angular-js-workflow-and-project-structure-with-python-flask/][Typical Angular.js workflow and project structure (with Python Flask)]]
+* RESTful API
+Django下面有强大易用的Django RESTful Framework，Flask下有一个叫
+Flask-Restless的，短小精悍，但基本能够替代DRF。
+
 * 回顾
 **  Flask 是个比 Tornado 更加理想的 Web 框架 <2014-09-20 六>
 今天在西安校招结束了，坐高铁回北京，路上无聊开始学习 Flask，发现了很多让我
