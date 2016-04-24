@@ -99,3 +99,4 @@ mechanism for failed nodes to restore their data. The log compaction
 feature in Kafka helps support this usage. In this usage Kafka is similar
 to Apache BookKeeper project.
 #+END_QUOTE
+* 源码阅读
