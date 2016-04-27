@@ -44,6 +44,15 @@ def install_vim():
 *** 感受
 如果是想单纯地在指定某台机器上执行命令的话，Paramiko 更加好用，Fabric 反倒是
 增加了许多无谓之举。
+* run的pty选项 <2016-04-27 三>
+我们QA发现通过Fabric启动沙盒环境的一组进程总是失败，而在shell下启动这些进程
+却没问题。这些进程是用nohup启动的，理论上离开终端不会导致进程退出。
+
+最后我用 ~fabric nohup background~ 作为关键词搜索，发现Fabric的run函数有个
+pty参数，于是我将之设置为False尝试，发现成功了。
+
+参考：
+- http://docs.fabfile.org/en/1.6/faq.html#init-scripts-don-t-work
 * 回顾
 ** 神器，无疑  <2014-06-17 Tue>
 我轻易地写出了一些远程批量部署的脚本，让这批机器环境比之前整洁了很多。相对于以前
