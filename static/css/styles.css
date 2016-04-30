@@ -75,10 +75,6 @@ table {
   display: block;
   margin-top: 0; }
 
-.left-nav-list {
-  height: 100%;
-  overflow-y: auto; }
-
 #toc {
   /* active & hover links */
   /* all active links */
@@ -574,6 +570,21 @@ body.gallery {
     -webkit-column-count: 5;
     -moz-column-count: 5;
     column-count: 5; } }
+
+html.evernote, body.evernote {
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff; }
+
+.evernote .container, .evernote .row, .evernote .aside, .evernote .aside-1, .evernote .aside-2 {
+  height: 100%; }
+.evernote .aside-1 {
+  background-color: #f8f8f8;
+  border-right: 1px solid #ececec; }
+.evernote .aside-2 {
+  overflow-y: auto; }
+.evernote .container {
+  width: 100%; }
 
 .zy-event {
   background-color: #ddd;

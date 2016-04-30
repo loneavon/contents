@@ -14,3 +14,11 @@ Emacs Org-mode + Nanoc 用了几年，感觉有点慢了，有点成为了我的
 - [[http://compass-style.org/help/tutorials/best_practices/][Scss Best Practices]]
 
 
+* Evernote风格
+** Bootstrap分栏时如何实现侧边栏垂直滚动条？ <2016-05-01 日>
+方法：
+1. html/body标签设定为height: 100%; overflow: hidden
+2. container/row/全部aside都设定为 height: 100%
+3. 需要垂直滚动的aside设定overflow-y: auto
+   
+补充：这样设置后，整个页面的回弹特效也丧失了，让页面像个桌面应用一样。

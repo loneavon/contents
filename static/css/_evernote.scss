@@ -1,0 +1,27 @@
+html.evernote, body.evernote {
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.evernote {
+  .container, .row, .aside, .aside-1, .aside-2 {
+    height: 100%;
+  }
+
+  .aside-1 {
+    background-color: #f8f8f8;
+    border-right: 1px solid #ececec;
+  }
+  .avatar {
+    
+  }
+
+  .aside-2 {
+    overflow-y: auto;
+  }
+  .container {
+    width: 100%;
+  }
+}
+
