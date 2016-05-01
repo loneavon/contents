@@ -28,8 +28,8 @@ html.evernote, body.evernote {
 
   .aside-2 {
     border-right: 1px solid #ececec;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .aside-2, .content {
@@ -42,6 +42,12 @@ html.evernote, body.evernote {
 
   .media {
     border-bottom: 1px solid #ececec;
+  }
+  .media-heading {
+    font-size: 16px;
+    a {
+      color: #000;
+    }
   }
 }
 

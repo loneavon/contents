@@ -593,8 +593,8 @@ html.evernote, body.evernote {
   margin-bottom: 30px; }
 .evernote .aside-2 {
   border-right: 1px solid #ececec;
-  padding-left: 0px;
-  padding-right: 0px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 .evernote .aside-2, .evernote .content {
   padding-top: 20px;
   overflow-y: auto; }
@@ -602,6 +602,10 @@ html.evernote, body.evernote {
   width: 100%; }
 .evernote .media {
   border-bottom: 1px solid #ececec; }
+.evernote .media-heading {
+  font-size: 16px; }
+  .evernote .media-heading a {
+    color: #000; }
 
 .zy-event {
   background-color: #ddd;
