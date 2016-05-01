@@ -615,6 +615,17 @@ html.evernote, body.evernote {
 .evernote .last-update-time a {
   color: #008000; }
 
+.timeline ul {
+  clear: both; }
+.timeline li {
+  width: 101px;
+  height: 105px;
+  float: left;
+  background-color: #ddd;
+  margin: 0 6px 6px 0;
+  padding: 10px 12px;
+  position: relative; }
+
 .zy-event {
   background-color: #ddd;
   margin-right: 5px;

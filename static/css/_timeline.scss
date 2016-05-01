@@ -1,0 +1,16 @@
+.timeline {
+  ul {
+   clear: both;
+  }
+
+
+  li {
+    width: 101px;
+    height: 105px;
+    float: left;
+    background-color: #ddd;
+    margin: 0 6px 6px 0;
+    padding: 10px 12px;
+    position: relative;
+  }
+}
