@@ -601,7 +601,8 @@ html.evernote, body.evernote {
 .evernote .container {
   width: 100%; }
 .evernote .media {
-  border-bottom: 1px solid #ececec; }
+  border-bottom: 1px solid #ececec;
+  height: 64px; }
 .evernote .media-heading {
   font-size: 16px; }
   .evernote .media-heading a {
