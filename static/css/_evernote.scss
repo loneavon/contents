@@ -42,16 +42,20 @@ html.evernote, body.evernote {
 
   .media {
     border-bottom: 1px solid #ececec;
-    height: 64px;
-    .summary {
-
-    }
+    height: 72px;
   }
   .media-heading {
-    font-size: 16px;
+    font-size: 14px;
     a {
       color: #000;
     }
   }
+  .last-update {
+    font-size: 12px;
+  }
+  .last-update-time {
+    color: #008000;
+  }
+
 }
 
