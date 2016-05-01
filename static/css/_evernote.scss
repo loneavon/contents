@@ -43,18 +43,24 @@ html.evernote, body.evernote {
   .media {
     border-bottom: 1px solid #ececec;
     height: 72px;
-  }
-  .media-heading {
-    font-size: 14px;
-    a {
-      color: #000;
+    .media-heading {
+      font-size: 14px;
+      a {
+        color: #000;
+      }
+    }
+    img.media-object {
+      width: 40px;
+      max-height: 60px;
     }
   }
   .last-update {
     font-size: 12px;
   }
   .last-update-time {
-    color: #008000;
+    a {
+      color: #008000;
+    }
   }
 
 }

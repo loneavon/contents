@@ -603,13 +603,16 @@ html.evernote, body.evernote {
 .evernote .media {
   border-bottom: 1px solid #ececec;
   height: 72px; }
-.evernote .media-heading {
-  font-size: 14px; }
-  .evernote .media-heading a {
-    color: #000; }
+  .evernote .media .media-heading {
+    font-size: 14px; }
+    .evernote .media .media-heading a {
+      color: #000; }
+  .evernote .media img.media-object {
+    width: 40px;
+    max-height: 60px; }
 .evernote .last-update {
   font-size: 12px; }
-.evernote .last-update-time {
+.evernote .last-update-time a {
   color: #008000; }
 
 .zy-event {
