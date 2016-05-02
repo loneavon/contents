@@ -75,6 +75,19 @@ table {
   display: block;
   margin-top: 0; }
 
+.p-a {
+  padding: 15px; }
+
+.p-x {
+  padding-left: 15px !important;
+  padding-right: 15px !important; }
+
+.p-b {
+  padding-bottom: 15px !important; }
+
+.m-a {
+  margin: 15px !important; }
+
 #toc {
   /* active & hover links */
   /* all active links */

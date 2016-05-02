@@ -114,7 +114,19 @@ table {
   margin-top: 0; // remove the gap so it doesn't close
 }
 
-
-.right-content {
-
+.p-a {
+  padding: 15px;
 }
+
+.p-x {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.p-b {
+  padding-bottom: 15px !important;
+}
+
+.m-a {
+  margin: 15px !important;
+}
+
