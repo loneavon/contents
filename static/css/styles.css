@@ -627,6 +627,8 @@ html.evernote, body.evernote {
   font-size: 12px; }
 .evernote .last-update-time a {
   color: #008000; }
+.evernote .list-group-item {
+  font-size: 14px; }
 
 .timeline {
   border-right: 1px solid #ececec; }
