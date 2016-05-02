@@ -97,6 +97,21 @@ def minos_overview():
 注意，如果元素在 list 中不存在，则 index() 方法会抛出异常，为了是代码优雅，
 我可以在调用 index() 之前通过 if x in xx 来先做一个判断。
 
+** 将groupby的结果持久化为list <2016-05-02 一>
+有时候，我们groupby后的结果想多次使用。 groupby返回的是一个iterator，可以迭
+代访问各元素，但是，一旦访问完，这个元素将无法再次被访问。
+
+为了解决这个问题，我们可以手动将groupby的结果持久化为list，示例代码如下：
+#+BEGIN_SRC python
+  map(lambda it: it.update(), self.items)
+  for year, item_of_year in groupby(self.items, itemgetter('year')):
+      self.items_group_by_year.append((year, list(item_of_year)))
+  self.items.sort(key=itemgetter('date'), reverse=True)
+#+END_SRC
+
+参考：
+- https://docs.python.org/2/library/itertools.html
+
 * string
 ** 搜索
 * Built-in Functions
