@@ -651,6 +651,7 @@ html.evernote, body.evernote {
     outline: none; }
   .timeline li.text h3 {
     max-height: 42px;
+    line-height: 21px;
     margin: 3px 0 13px;
     overflow: hidden;
     font-size: 16px;
@@ -659,17 +660,28 @@ html.evernote, body.evernote {
     word-wrap: break-word;
     line-height: 23px;
     font-size: 12px; }
-.timeline .info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: #fff;
-  z-index: 100;
-  opacity: 0;
-  background: #353535; }
+  .timeline li.text .info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    z-index: 100;
+    opacity: 0;
+    background: #353535; }
+    .timeline li.text .info em {
+      display: block;
+      padding-top: 40px;
+      font-size: 18px;
+      line-height: 40px;
+      font-weight: bold;
+      font-style: normal; }
+    .timeline li.text .info small {
+      font-size: 16px; }
+  .timeline li.text a:hover .info {
+    opacity: 0.9; }
 
 .zy-event {
   background-color: #ddd;
