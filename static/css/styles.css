@@ -615,73 +615,75 @@ html.evernote, body.evernote {
 .evernote .last-update-time a {
   color: #008000; }
 
-.timeline h2 {
-  font-size: 16px;
-  font-weight: normal;
-  height: 40px;
-  margin-bottom: 5px;
-  line-height: 40px; }
-.timeline ul {
-  padding: 0;
-  margin: 0; }
-.timeline ul:after {
-  display: block;
-  visibility: hidden;
-  clear: both;
-  height: 0;
-  content: ".";
-  overflow: hidden; }
-.timeline .text, .timeline .text a {
-  width: 125px;
-  height: 125px;
-  padding: 10px 12px; }
-.timeline li.text {
-  position: relative;
-  float: left;
-  margin: 0 6px 6px 0;
-  overflow: hidden;
-  background-color: #ddd;
-  list-style: none; }
-  .timeline li.text a {
-    line-height: 21px;
-    overflow: hidden;
-    padding: 0;
-    color: #666;
-    text-decoration: none;
-    outline: none; }
-  .timeline li.text h3 {
-    max-height: 42px;
-    line-height: 21px;
-    margin: 3px 0 13px;
-    overflow: hidden;
+.timeline {
+  border-right: 1px solid #ececec; }
+  .timeline h2 {
     font-size: 16px;
-    font-weight: bold; }
-  .timeline li.text p {
-    word-wrap: break-word;
-    line-height: 23px;
-    font-size: 12px; }
-  .timeline li.text .info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    color: #fff;
-    z-index: 100;
-    opacity: 0;
-    background: #353535; }
-    .timeline li.text .info em {
-      display: block;
-      padding-top: 40px;
-      font-size: 18px;
-      line-height: 40px;
-      font-weight: bold;
-      font-style: normal; }
-    .timeline li.text .info small {
-      font-size: 16px; }
-  .timeline li.text a:hover .info {
-    opacity: 0.9; }
+    font-weight: normal;
+    height: 40px;
+    margin-bottom: 5px;
+    line-height: 40px; }
+  .timeline ul {
+    padding: 0;
+    margin: 0; }
+  .timeline ul:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: ".";
+    overflow: hidden; }
+  .timeline .text, .timeline .text a {
+    width: 125px;
+    height: 125px;
+    padding: 10px 12px; }
+  .timeline li.text {
+    position: relative;
+    float: left;
+    margin: 0 6px 6px 0;
+    overflow: hidden;
+    background-color: #ddd;
+    list-style: none; }
+    .timeline li.text a {
+      line-height: 21px;
+      overflow: hidden;
+      padding: 0;
+      color: #666;
+      text-decoration: none;
+      outline: none; }
+    .timeline li.text h3 {
+      max-height: 42px;
+      line-height: 21px;
+      margin: 3px 0 13px;
+      overflow: hidden;
+      font-size: 16px;
+      font-weight: bold; }
+    .timeline li.text p {
+      word-wrap: break-word;
+      line-height: 23px;
+      font-size: 12px; }
+    .timeline li.text .info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: #fff;
+      z-index: 100;
+      opacity: 0;
+      background: #353535; }
+      .timeline li.text .info em {
+        display: block;
+        padding-top: 40px;
+        font-size: 18px;
+        line-height: 40px;
+        font-weight: bold;
+        font-style: normal; }
+      .timeline li.text .info small {
+        font-size: 16px; }
+    .timeline li.text a:hover .info {
+      opacity: 0.9; }
 
 .zy-event {
   background-color: #ddd;
