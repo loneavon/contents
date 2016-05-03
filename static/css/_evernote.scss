@@ -67,5 +67,10 @@ html.evernote, body.evernote {
     font-size: 14px;
   }
 
+  li.active>a, li.active>a:focus, li.active>a:hover {
+    color: #666;
+    background-color: #e5e5e5;
+  }
+
 }
 

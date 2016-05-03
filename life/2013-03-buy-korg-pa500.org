@@ -1,0 +1,104 @@
+#+TITLE: 入手 Korg PA500 编曲键盘
+#+DATE: 2013-03-02
+#+KEYWORDS: 设备
+
+* 心魔现形
+听了 天空之城（弦乐）http://www.tudou.com/programs/view/BYNY8gJVnGA/ 有种想
+买个电子琴的愿望。
+
+然后又听用雅马哈 S650 弹奏 celtic 音乐，秒杀我了。我想用电子琴弹出恩雅的
+fairytale!!!
+
+于是，我疯狂地流连于各大电子琴论坛，了解电子琴型号和价位，就像当年我痴迷于
+随身听音设备而彻夜逛 imp3 和耳机大家谈一样。
+
+* 雅马哈 S650 的调研
+雅马哈 S650 与 S900 对比：
+- http://124.207.176.118/bbs/thread-181288-1-3.html
+
+S650 有点罗列：作者说 S650 很多高端琴的特色被照搬过来了。
+- http://124.207.176.118/bbs/thread-181113-1-3.html
+
+S650 音色评价：说它的弦乐不行
+- http://124.207.176.118/bbs/thread-181138-1-3.html
+
+键盘中国的 S650 团购，貌似送了架子和包：
+- http://www.cnkeyboard.com/bbs/thread-177794-1-2.html
+
+* Korg PA500 的调研 - 2013-3-4 12:39:56
+S650 有竞争对手了！PA500
+- http://www.cnkeyboard.com/bbs/thread-138612-1-1.html 
+- http://www.cnkeyboard.com/bbs/thread-175836-2-1.html
+
+夫夫 08 年发的，此时 pa500 刚出。回帖认为该琴超越了雅马哈 S900 不少
+- http://www.cnkeyboard.com/bbs/thread-47066-1-4.html
+
+PA500 与 S650 的各类乐器比较：
+- http://www.cnkeyboard.com/bbs/forum.php?mod=viewthread&tid=152036&highlight=pa500 
+
+两款乐器比较合辑：
+- http://www.cnkeyboard.com/bbs/forum.php?mod=viewthread&tid=181491&highlight=pa500
+
+PA600 相比 PA500：
+- http://bbs.cndzq.com/thread-201385-1-1.html
+
+此人贬低了 PA500，赞扬了 BK5：
+- http://bbs.cndzq.com/forum.php?mod=viewthread&tid=150811&highlight=PA500
+
+5 楼称 S650 系统老，PA500 系统强大
+- http://bbs.cndzq.com/forum.php?mod=viewthread&tid=233356
+
+BK5 VS PA500，它们貌似各有胜场：
+- http://bbs.cndzq.com/thread-173364-1-10.html
+
+这个是 PA500 的传统意义上的评测：
+- http://bbs.cndzq.com/thread-51228-1-22.html
+
+PA500 PK PA600：
+- http://mail.cnkeyboard.com/bbs/thread-175535-1-1.html
+
+发现 PA500 确实存在很多质量问题：
+- http://bbs.cndzq.com/search.php?mod=forum&searchid=291&orderby=lastpost&ascdesc=desc&searchsubmit=yes&kw=%D6%CA%C1%BF
+
+* 已经购入雅马哈 S650 - 2013-3-6 13:28:33
+[[./imgs/2013-03-buy-korg-pa500_1.png]]
+
+* 买了 S650，但是心里记挂这 BK-5 啊 - 2013-3-7 0:49:01
+该文狂赞 BK-5，特别是它的伴奏：
+- http://124.207.176.118/bbs/forum.php?mod=viewthread&tid=175369&extra=&highlight=BK&page=1
+
+该贴称 BK5 中国音色不行，单是其他音色可以与 S950 媲美：
+- http://www.cnkeyboard.com/bbs/thread-166231-1-1.html
+
+该贴先夸了 BK5，然后又喷了它操作太垃圾：
+- http://www.cnkeyboard.com/bbs/thread-161142-1-1.html
+
+* S650 换了 PA500
+看了一些评测，觉得 S650 专业性不如 PA500，于是想换成 PA500。
+
+[[./imgs/2013-03-buy-korg-pa500_2.png]]
+
+夫夫发给我的评测 + 录音：
+- http://www.cnkeyboard.com/bbs/forum.php?mod=viewthread&tid=46913&highlight=pa500ch%B3%F5%B2%BD 
+
+* 想卖掉 PA500
+现在想出掉 PA500，入 E333/E323，能够多出大约 4700 - 900 = 3800 块钱。
+
+发了 PA500 出售帖 - 2013-4-6 17:20:18
+- http://bbs.cndzq.com/thread-259715-1-1.html
+- http://www.cnkeyboard.com/bbs/thread-192283-1-1.html
+
+问了下夫夫，如何保修 PA500
+
+[[./imgs/2013-03-buy-korg-pa500_3.png]]
+
+* 决定留下 PA500
+能亲手弹出我喜爱的音乐是我一生的愿望，我不应该急于一时。虽然这几年工作忙，
+无暇练琴，但人生长着呢，愿望终有一天能实现。
+
+勿忘初心！
+
+* TODO
+- 将以前拍的开箱照贴上来
+- 将发的帖子搬过来
+- 我的初学弹琴的经历

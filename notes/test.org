@@ -1,0 +1,12 @@
+#+TITLE: Test
+#+DATE: 2016-04-10
+
+[[sdf]]
+jsdf
+sdfsdf
+dfsdf
+
+[[http://sdfsdf][asdfasdf]]
+
+#+CAPTION: ./imgs/test_20160410180536.png
+[[./imgs/test_20160410180536.png]]

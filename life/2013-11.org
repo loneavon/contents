@@ -1,0 +1,13 @@
+#+TITLE: 2013 年 11 月
+#+DATE: 2013-11-01
+
+* 学习 potion 语言 <2013-12-17 二>
+被 http://learnvimscriptthehardway.stevelosh.com/chapters/41.html 忽悠，学了
+一下 potion 语言。 
+1. git clone git@github.com:perl11/potion.git
+2. make（失败，缺少 automake 和 libtool）
+3. brew install automake
+4. brew install libtool
+5. make
+6. make test
+7. 成功！

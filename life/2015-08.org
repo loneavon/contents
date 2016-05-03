@@ -1,0 +1,36 @@
+#+TITLE: 2015 年 8 月
+#+DATE: 2015-08-01
+
+* 本月节奏
+太忙了，又要搞职称评定，还有 N 个项目追着我，快两个月没好好在 life 目录下加
+东西了。
+
+* 搭建 SSD + HDD 双硬盘环境 <2015-08-29 六>
+我在为我的台式机搭建 SSD+HDD 双硬盘环境，先用 SSD 装系统，然后插上 HDD 后为
+其分区，再重启，发现无法启动，报 ~Reboot and select proper boot device~ 这
+样的错误。虽然系统装在 SSD，但是启动时，貌似总被勾引到 HDD。
+
+我为 HDD 换了 N 个 SATA 口都搞不定。最后，我使用老毛桃做了一个 PE 启动盘，
+插上双硬盘启动后，在 PE 里 *通过 DiskGenius 将 HDD 的四个分区从 MBR 格式转
+化为 GUID 格式* ，然后重启，发现成功启动！
+
+* 青い宝 - やなわらばー <2015-08-18 二>
+今年春节回家前网易云音乐给我推荐了这首歌，结果发现很对我胃口，春节在家循环
+听了很多遍。如今听了半年，仍然一样的好听。
+
+它使用了一种古代乐器（三味线）弹奏，两个女声的和声非常优美，仿佛将我带到了
+某个地方。
+
+#+BEGIN_HTML
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=22748787&auto=0&height=66"></iframe>
+#+END_HTML
+* 彷徨の炎 - 植松伸夫 <2015-08-01 六> 
+这是背景音乐：彷徨の炎，来自于最终幻想 10。我没有玩过最终幻想系列的任意一部，
+但是我却喜欢上了最终幻想 10 的音乐，这些音乐勾勒出了一个无法触及的虚幻时空。
+
+（补充：该音乐于 2015-09-10 00:46:27 从网站首页下线，并新上线不能种庄稼系列
+音乐）
+
+#+BEGIN_HTML
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=540432&auto=0&height=66"></iframe>
+#+END_HTML

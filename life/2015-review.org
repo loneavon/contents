@@ -1,0 +1,46 @@
+#+TITLE: 我的 2015
+
+
+* 娱乐生活
+* 2015 年的网站快照
+** 常去的网站
+
+新浪微博
+#+CAPTION: ./imgs/2015-review_20151219155102.png
+[[./imgs/2015-review_20151219155102.png]]
+
+知乎
+#+CAPTION: ./imgs/2015-review_20151219155217.png
+[[./imgs/2015-review_20151219155217.png]]
+
+京东
+#+CAPTION: ./imgs/2015-review_20151219155421.png
+[[./imgs/2015-review_20151219155421.png]]
+
+天猫
+#+CAPTION: ./imgs/2015-review_20151219160103.png
+[[./imgs/2015-review_20151219160103.png]]
+
+NGA
+#+CAPTION: ./imgs/2015-review_20151219155613.png
+[[./imgs/2015-review_20151219155613.png]]
+
+SG
+#+CAPTION: ./imgs/2015-review_20151219155714.png
+[[./imgs/2015-review_20151219155714.png]]
+
+Apple
+#+CAPTION: ./imgs/2015-review_20151219160304.png
+[[./imgs/2015-review_20151219160304.png]]
+
+B 站
+#+CAPTION: ./imgs/2015-review_20151219160428.png
+[[./imgs/2015-review_20151219160428.png]]
+
+A 站
+#+CAPTION: ./imgs/2015-review_20151219160540.png
+[[./imgs/2015-review_20151219160540.png]]
+
+斗鱼
+#+CAPTION: ./imgs/2015-review_20151219160644.png
+[[./imgs/2015-review_20151219160644.png]]

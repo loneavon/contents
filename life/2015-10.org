@@ -1,0 +1,14 @@
+#+TITLE: 2015 年 10 月
+#+DATE: 2015-10-01
+
+* 学吉他三周了，录了这首《天空之城》 <2015-10-18 日>
+[15-10] 学吉他三周了，录了这首《天空之城》，作为阶段性的成果。当然还有很多
+需要 debug 和 refactor 的地方，这些将在后续的日子里逐一攻破
+
+#+BEGIN_HTML
+<iframe height=498 width=510 src="http://player.youku.com/embed/XMTM3NzUzNTk4MA==" frameborder=0 allowfullscreen></iframe>
+#+END_HTML
+
+说明：补记于 2015-11-12 02:21:32
+
+

@@ -838,6 +838,9 @@ html.evernote, body.evernote {
   color: #008000; }
 .evernote .list-group-item {
   font-size: 14px; }
+.evernote li.active > a, .evernote li.active > a:focus, .evernote li.active > a:hover {
+  color: #666;
+  background-color: #e5e5e5; }
 
 .timeline {
   border-right: 1px solid #ececec; }

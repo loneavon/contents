@@ -1,0 +1,70 @@
+#+TITLE: 入手 MacBook Pro 13 (2013 版）
+#+DATE: 2013-10-24
+
+* 苹果发布会
+10 月 24 日苹果发布了两款 ipad，两款 rmbp。本来我是冲着 ipad 来的，结果却被 rmbp13
+给迷上了。
+
+我买 Mac 的理由：
+1. 家里缺个笔记本，没法在床上写代码
+2. 想使用原生的*nix 系统；
+3. 高性能的 Retina+SSD+多维触摸板笔记本电脑；
+4. Keynote，itunes，OS X，新的世界；
+
+* MacBook 相关文章收集 - 2013-10-27 23:59:43
+为什么我认为每个程序员都应该用 Mac OS X？
+http://tiny4.org/blog/2010/02/why-programmers-should-use-mac-os-x/
+
+开发人员为何应该使用 Mac OS X 兼 OS X 小史
+http://blog.youxu.info/2010/02/28/why-mac-os-x-for-programmers/
+
+MacBook Air 与 MacBook Pro 差别多大？
+http://www.zhihu.com/question/20385806
+
+MacBook 外接显示器
+http://www.macx.cn/thread-2048166-1-1.html
+
+
+* 构思一下有了 MacBook 之后如何工作 - 2013-10-28 0:29:57
+Q: 需不需要登陆公司开发机？
+A: 应该不需要，直接下一个在 MB 的终端里面使用 svn/git 从公司的代码库里面 ci/co。
+
+* 需要买啥配件？ - 2013-10-31 0:19:13
+http://www.zhihu.com/question/20012233
+
+Mini DisplayPort to VGA 看来必须配。官方的价格是 200 多，第三方的有卖 70 的。还
+看到一个 DP 转 VGA/DVI/HDMI 的：
+http://item.jd.com/984946.html
+
+* 购买过程 - 2013-10-29 1:22:16
+今天看到了两家不错的。一家是（著名的）福利社，一家是淘宝代购店。
++ http://www.macx.cn/forum-5888-1.html
++ http://shop65055996.taobao.com/?spm=0.0.0.0.oQqAAw
+
+决定在北京福利社买了，恰好这家降价了，赞！
+http://item.taobao.com/item.htm?spm=0.0.0.31.Kq11jJ&id=16285301954 
+
+出手了，真刺激 - 2013-10-29 13:33:57
+[[./imgs/2013-10-buy-macbook-pro_1.png]]
+
+* 北京自取 RMBP13 中配  <2013-10-31 四>
+
+前天预定的，没想到今天就到货了。接到 Macx 美女的电话之后，我请了半天假赶往积
+水潭五月花亭来取电脑。Macx 的同学们服务很周到，我对机器很满意。
+
+在 macx.cn 上发了个帖子：
+[[http://www.macx.cn/thread-2109376-1-1.html][北京自取 RMBP13 中配 - 10.31]]
+
+不多说，上图！
+
+[[./imgs/2013-10-buy-macbook-pro_2.png]]
+
+[[./imgs/2013-10-buy-macbook-pro_3.png]]
+
+[[./imgs/2013-10-buy-macbook-pro_4.png]]
+
+[[./imgs/2013-10-buy-macbook-pro_5.png]]
+
+* TODO 
+- 将以前拍的开箱照贴上来
+- 将发的帖子搬过来
