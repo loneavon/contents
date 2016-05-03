@@ -22,3 +22,13 @@ Emacs Org-mode + Nanoc 用了几年，感觉有点慢了，有点成为了我的
 3. 需要垂直滚动的aside设定overflow-y: auto
    
 补充：这样设置后，整个页面的回弹特效也丧失了，让页面像个桌面应用一样。
+* 包管理
+本来使用bower，但是发现现在npm更流行，对打包的支持更好。我之前一直觉得npm很
+慢，而且经常被墙，后来发现了淘宝维护的npm镜像，速度还不错。于是就换成npm了。
+- https://npm.taobao.org/
+  
+换用npm以后，我发现有个包zoom.js并未被收录，而bower是是有它的。我执行了一下
+nmp help install，发现可以直接以github的仓库作为执行参数。
+#+BEGIN_SRC sh
+cnpm install --save fat/zoom.js
+#+END_SRC
