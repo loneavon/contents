@@ -19,7 +19,7 @@
 
 参考：[[http://www.zhihu.com/question/20559820][ch vs cx]]
 
-* 初试 Cocos2d-x (2014-02-12)
+* 初试 Cocos2d-x <2014-02-12 三>
 ** 环境搭建
 首先，我再官网下载了 [[http://www.cocos2d-x.org/download][Cocos2d-x v2.2.2]]
 
