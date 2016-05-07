@@ -257,3 +257,18 @@ drwxrwxr-x  20 zhongyi01 zhongyi01     4096 Feb 23 17:07 base.objs
 -rw-rw-r--   1 zhongyi01 zhongyi01 47712618 Feb 23 17:07 libbase.a
 #+end_src
 
+#+BEGIN_SRC swift
+if assumedString {
+    println(assumedString)
+}
+// 输出 "An implicitly unwrapped optional string."
+#+END_SRC
+
+#+BEGIN_SRC js
+addEventListener('load', function() {
+  var code = document.querySelector('#code');
+  var worker = new Worker('worker.js');
+  worker.onmessage = function(event) { code.innerHTML = event.data; }
+  worker.postMessage(code.textContent);
+})
+#+END_SRC
