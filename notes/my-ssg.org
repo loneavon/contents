@@ -130,3 +130,5 @@ sys.path.append('./')
 reload(sys)
 sys.setdefaultencoding('utf-8')
 #+END_SRC   
+** TODO highlight.js未生效
+已经引入，函数确认调用。但是代码并未如期高亮。
