@@ -130,10 +130,17 @@ sys.path.append('./')
 reload(sys)
 sys.setdefaultencoding('utf-8')
 #+END_SRC   
-** TODO highlight.js未生效
+** DONE highlight.js未生效
 已经引入，函数确认调用。但是代码并未如期高亮。了解了了一下，发现可能是需要
 到官方是定制一个程序包。
 
 后来，确认确实是npm install的东西是未打包的，需要额外到官网下载一个。这点的
 确挺坑的。
+
+** TODO URL中存在中文时转化有问题
+下面第一行为原URL，第二行为转化后的URL。   
+#+BEGIN_SRC sh
+https://zh.wikipedia.org/wiki/%E8%AB%96%E5%8B%95%E9%AB%94%E7%9A%84%E9%9B%BB%E5%8B%95%E5%8A%9B%E5%AD%B8
+https://zh.wikipedia.org/wiki/%25E8%25AB%2596%25E5%258B%2595%25E9%25AB%2594%25E7%259A%2584%25E9%259B%25BB%25E5%258B%2595%25E5%258A%259B%25E5%25AD%25B8
+#+END_SRC
 
