@@ -94,4 +94,8 @@ select iso_year, week_num, sum(time_cost)/60 from clock_item group by iso_year, 
 ** 后端开发按日期导出计时项的功能
 每年（或每月，看数据量大小）归档到数据文件里。
 ** UI开发一个指定展示指定日期范围计时项的功能
+使用React：
+#+BEGIN_SRC sh
+npm install --save react react-dom
+#+END_SRC
 ** 开发按日期导出
