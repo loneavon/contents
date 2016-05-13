@@ -91,9 +91,10 @@ select iso_year, week_num, sum(time_cost)/60 from clock_item group by iso_year, 
 - UI开发一个指定展示指定日期范围计时项的功能
 
 ** 使用的SQL
-计算某月
-#+BEGIN_SRC sh
+按月/按周统计各类型各项目的耗时和计时项：
+#+BEGIN_SRC sql
 select category, project, count(time_cost), sum(time_cost) from clock_item where year = 2016 and month = 5 group by category, project;
+select category, project, count(time_cost), sum(time_cost) from clock_item where iso_year = 2016 and week = 5 group by category, project;
 #+END_SRC
 
 ** 开发按日期导出
