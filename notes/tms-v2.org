@@ -27,6 +27,10 @@
 8. 重构我的事情体系
 9. 通过网页或者 App 实现外出时的计时
 
+* 资料搜集
+- [[http://pandas.pydata.org/][Pandas: Python Data Analysis Library]]  
+- [[https://github.com/rasbt/pattern_classification/blob/master/resources/python_data_libraries.md][Useful libraries for data science in Python]]
+
 * 归档
 要点：
 - 主文件名：time.org
