@@ -49,17 +49,17 @@ class ClockItem(db.Model):
     start_time = db.Column(db.DateTime, nullable=False)
     end_time = db.Column(db.DateTime, nullable=False)
     start_hour = db.Column(db.Integer, nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
+    date = db.Column(db.DateTime, nullable=False, index=True)
     year = db.Column(db.Integer, nullable=False)
     month = db.Column(db.Integer, nullable=False)
     iso_year = db.Column(db.Integer, nullable=False)
-    week_num = db.Column(db.Integer, nullable=False)
+    week = db.Column(db.Integer, nullable=False)
     weekday = db.Column(db.Integer, nullable=False)
 
     thing = db.Column(db.String(1024), nullable=False)
     time_cost = db.Column(db.Integer, nullable=False)  # In minute unites
-    level = db.Column(db.Integer, nullable=False)
-    type = db.Column(db.String(1024), nullable=False)
+    level = db.Column(db.Integer, nullable=False, default=-1)
+    category = db.Column(db.String(1024), nullable=False)
     project = db.Column(db.String(1024), nullable=False)
 #+END_SRC
 
@@ -85,17 +85,15 @@ select iso_year, week_num, sum(time_cost)/60 from clock_item group by iso_year, 
 2. 我今天/本周/本月在各类别各项目上花费的时间总和和分布如何？
    
 我需要逐个开发如下功能：
-** 整理一下需要开发的页面列表
-需要以下页面：
-1. 时间分析页面：输入指定的日期范围，展示统计结果，也可以看计时项列表。
-** 拟定TMS数据的格式，
-并在UI端做一个通用的数据展示页面，让后端的一切开发立刻
-   可见。
-** 后端开发按日期导出计时项的功能
-每年（或每月，看数据量大小）归档到数据文件里。
-** UI开发一个指定展示指定日期范围计时项的功能
-使用React：
+- 整理一下需要开发的页面列表
+- 拟定TMS数据的格式，
+- 后端开发按日期导出计时项的功能
+- UI开发一个指定展示指定日期范围计时项的功能
+
+** 使用的SQL
+计算某月
 #+BEGIN_SRC sh
-npm install --save react react-dom
+select category, project, count(time_cost), sum(time_cost) from clock_item where year = 2016 and month = 5 group by category, project;
 #+END_SRC
+
 ** 开发按日期导出
