@@ -112,6 +112,18 @@ def minos_overview():
 参考：
 - https://docs.python.org/2/library/itertools.html
 
+** 根据一个数组来排序另外一个数组 <2016-05-14 六>
+第一个数组叫做基准数组，第二个数组叫做待排序数组：使用一个lamda作为待排序数
+组的排序key，该lamda以待排序数组的元素作为参数，并从基准数组中返回一个下标
+（使用index方法），这个下标可可比较的，故待排序数据的排序将以基准数组为基准。
+#+BEGIN_SRC python
+  categories = ['工作', '学习', '生活', '未归类']
+  legend_data = list(t[0] for t in week_data_group_by_category)
+  legend_data.sort(key=lambda x: categories.index(x))
+#+END_SRC
+
+参考： [[http://stackoverflow.com/questions/12814667/how-to-sort-a-list-according-to-another-list][How to sort a list according to another list?]]
+
 * string
 ** 搜索
 * Built-in Functions

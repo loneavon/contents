@@ -56,5 +56,5 @@ for notebook in notebooks:
 记下要点：
 1. 使用 findNotesMetadata来获取笔记列表，findNotes 已经被废弃。
 2. findNotesMetadata 的有个参数是指定取多少篇笔记，如果传得少的话，取回的是
-   不全的（之前我总是以为印象笔记服务器端故意不返回全机）。
+   不全的（之前我总是以为印象笔记服务器端故意不返回全集）。
 3. 官网的实例还是基本不通，就如同几年前一样，想要通，还是得要配置Thrift Client。

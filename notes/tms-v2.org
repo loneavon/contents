@@ -101,9 +101,11 @@ select category, project, count(time_cost), sum(time_cost) from clock_item where
 select category, project, count(time_cost), sum(time_cost) from clock_item where iso_year = 2016 and week = 5 group by category, project;
 #+END_SRC
 
-图表：
+*** 图表：展示一周用时分布的带环饼状图
+#+CAPTION: ./imgs/tms-v2_20160513170610.png
+[[./imgs/tms-v2_20160513170610.png]]
+
 1. 展示一天用时分布的带环饼状图
-1. 展示一周用时分布的带环饼状图
 1. 展示一月用时分布的带环饼状图
 1. 展示一年用时分布的带环饼状图
 
