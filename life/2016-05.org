@@ -22,3 +22,17 @@
 主要拍的是风景照，之前听说光圈越小，画面细节越丰富，于是调到了最低光圈F22。
 回来后感觉照片放大后很糊，很不理想。咨询了一下同事，得知光圈开到F22是个灾难
 性的举动，一般F10左右就差不多了。
+
+* 真人快打这个游戏好血腥！ <2016-05-22 日 00:02>
+各种手撕、剖片、碎颅、断脊，已经让我三观不适了。
+- [[https://www.zhihu.com/question/39821720/answer/101633971][有哪些十分阴暗、令人感到不适的游戏？]]
+- [[http://www.tudou.com/programs/view/hByNgDDRmxc/][【游侠网】《真人快打X》全部终结技]]
+- 学到了两个词：FATALITY（死亡） & HARA KIRI（破腹自杀）
+
+#+BEGIN_HTML
+<iframe src="http://www.tudou.com/programs/view/html5embed.action?type=0&code=hByNgDDRmxc&lcode=&resourceId=0_06_05_99" allowtransparency="true" allowfullscreen="true" allowfullscreenInteractive="true" scrolling="no" border="0" frameborder="0" style="width:480px;height:400px;"></iframe>
+#+END_HTML
+
+十多年前在网吧玩过几分钟，当时觉得这游戏人物造型好诡异，动作也很生硬，感觉
+好落后的样子。没想到这游戏原来这么血腥，而且在美国有非常多的粉丝，我以为只
+有日本人才会有这种爱好。
