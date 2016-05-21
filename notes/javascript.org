@@ -58,6 +58,14 @@ var realtimeFile = fileRegex.replace(/\.{.*/i, '');
 #+BEGIN_SRC js
 data.content = data.content.replace(/\\t/g, '\t');
 #+END_SRC
+** 从字符串中抽取数字（如金额） <2016-05-21 六>
+思路：先用正则将数字和小数点抽取出来，然后强转为Float。不过本方法有个局限，
+假如字符串中多个部分中含有数字，那就无能为力了。
+#+BEGIN_SRC javascript
+var price = '27.99元';
+$('#price').val(parseFloat(price.replace(/[^0-9\.]/g, ''), 10));
+#+END_SRC
+
 * 整数
 ** 取整
 两种方法：
