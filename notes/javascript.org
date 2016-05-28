@@ -133,3 +133,20 @@ JS 正则的转义也是如此，不过我们可以尝试总结一些规则：
 Jinia/Django，而JS呢，React可以用，不过太重且太丑陋。[[http://underscorejs.org/#template][Underscore]] ，是JS玩家
 喜爱的基础库，它提供了简单的Template功能，语法和ERB类似。
 
+#+BEGIN_SRC javascript
+var clockItemsTemplate = _.template("<table>" +
+    "<table>" +
+    "<caption><%= date %></caption>" +
+    "<tr> <th>事情</th> <th>开始时间</th> <th>耗时（分）</th> <th>类别</th> <th>项目</th> </tr>" +
+    "<% _.each(items,function(item){ %>"  +
+    "<tr> <td><%= item.thing %></td> <td><%= item.start_time %></td> <td><%= item.time_cost_min %></td> <td><%= item.category %></td> <td><%= item.project %></td> </tr>" +
+    "<% }) %>" +
+    "</table>");
+var dateStr = moment(date).format('YYYY-MM-DD');
+$.get('tms/clock_items/?date=' + dateStr, function(data) {
+    $("#placeholder").html(
+        clockItemsTemplate({items: data, date: dateStr})
+    );
+});
+#+END_SRC
+
