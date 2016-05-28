@@ -109,6 +109,17 @@ select category, project, count(time_cost), sum(time_cost) from clock_item where
 1. 展示一月用时分布的带环饼状图
 1. 展示一年用时分布的带环饼状图
 
+* 高级可视化
+** Time Usage Calendar <2016-05-28 六>
+GitHub的 [[https://github.com/blog/1360-introducing-contributions][Contributions Calendar]] 很炫很实用，看起来像是用D3画出来的，我也想
+用D3画一个 Time Usage Calendar，不过后来我发现有个叫做 [[https://github.com/wa0x6e/cal-heatmap][cal-heatmap]] 的JS模块
+能实现类似的效果。
+
+#+BEGIN_SRC sh
+npm install d3 --save
+npm install cal-heatmap --save
+#+END_SRC
+
 * 回顾
 ** Back To MVC <2016-05-21 六>
 上周末团队去黄山游玩，回来后的第一个周末想用来赶工作的事情。上周部门图书馆
