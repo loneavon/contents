@@ -127,3 +127,9 @@ JS 正则的转义也是如此，不过我们可以尝试总结一些规则：
 1. 英文字符和数字默认为普通字符，加上 \ 转义才变为元字符
 2. 特殊字符（如 . , + [ ] { } ^ $）默认为正则元字符，加上 \ 转义才为普通字符
 3. / 字符也属于元字符，加上 \ 转义才是普通字符
+* Template Engine 
+** Underscore Templates <2016-05-28 六>
+为了一更少的代码来编写HTML，我们需要模板引擎。Ruby有ERB/Liquid，Python有
+Jinia/Django，而JS呢，React可以用，不过太重且太丑陋。[[http://underscorejs.org/#template][Underscore]] ，是JS玩家
+喜爱的基础库，它提供了简单的Template功能，语法和ERB类似。
+
