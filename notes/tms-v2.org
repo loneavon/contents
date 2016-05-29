@@ -120,6 +120,10 @@ npm install d3 --save
 npm install cal-heatmap --save
 #+END_SRC
 
+最终结果：
+#+CAPTION: ./imgs/tms-v2_20160529160907.png
+[[./imgs/tms-v2_20160529160907.png]]
+
 * 回顾
 ** Back To MVC <2016-05-21 六>
 上周末团队去黄山游玩，回来后的第一个周末想用来赶工作的事情。上周部门图书馆
