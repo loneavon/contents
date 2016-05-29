@@ -133,6 +133,7 @@ JS 正则的转义也是如此，不过我们可以尝试总结一些规则：
 Jinia/Django，而JS呢，React可以用，不过太重且太丑陋。[[http://underscorejs.org/#template][Underscore]] ，是JS玩家
 喜爱的基础库，它提供了简单的Template功能，语法和ERB类似。
 
+下面一段JS代码通过Underscore的template函数生成了表格：
 #+BEGIN_SRC javascript
 var clockItemsTemplate = _.template("<table>" +
     "<table>" +
