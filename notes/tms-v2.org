@@ -87,7 +87,7 @@ select iso_year, week_num, sum(time_cost)/60 from clock_item group by iso_year, 
 周报中需要体现的内容：
 1. 参与的项目列表，在各个项目中投入的时间以及占比。
 2. 各个项目下各个事件的列表以及耗时
-3. 按天给出
+3. 按天给出各个项目的耗时，绘制曲线图
 
 
 * 前端开发
