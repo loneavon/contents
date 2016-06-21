@@ -258,10 +258,10 @@ select log_module_id, count(base_time), min(base_time), max(base_time) from data
 
 改造后的 Django ORM：
 #+BEGIN_SRC python
-  query_set =
-  DataSlice.objects.values('log_module_id').annotate(max_bt=Max('base_time'),
-                                                     min_bt=Min('base_time'), cnt=Count('base_time'))
+query_set = DataSlice.objects.values('log_module_id').annotate(max_bt=Max('base_time'), min_bt=Min('base_time'), cnt=Count('base_time'))
 #+END_SRC
+
+
 
 ** Legacy Database（非 Django ORM 生成和管理的数据库）
 所谓 *Legacy Database* 就是指那些以前项目遗留的，没有通过 Django ORM 来生成
