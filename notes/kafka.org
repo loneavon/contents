@@ -5,10 +5,17 @@
 * Introduction
 
 * 资料收集
+** 文档
 - [[http://kafka.apache.org/documentation.html][Kafka Documentation]]
 
+** 论文
+- [[http://research.microsoft.com/en-us/um/people/srikanth/netdb11/netdb11papers/netdb11-final12.pdf][Kafka: a Distributed Messaging System for Log Processing]]
+
+** 文章
 - [[http://tech.meituan.com/kafka-fs-design-theory.html][Kafka 文件存储机制那些事 - 美团技术团队]]
 - [[http://shift-alt-ctrl.iteye.com/blog/1930345][Apache kafka 原理与特性(0.8V)]]
+  
+
 
 * 存储引擎设计
 ** 分段和索引
