@@ -10,6 +10,8 @@
 | Snapshot            |                                                |   |
 | Skip List（跳跃表） | 一种数据结构，以增大步进的方式加速有序链表的查询 |   |
 
+** MemTable
+
 * Kafka
 [[../notes/kafka.org]]
 ** 重要概念
