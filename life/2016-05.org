@@ -27,7 +27,7 @@
 各种手撕、剖片、碎颅、断脊，已经让我三观不适了。
 - [[https://www.zhihu.com/question/39821720/answer/101633971][有哪些十分阴暗、令人感到不适的游戏？]]
 - [[http://www.tudou.com/programs/view/hByNgDDRmxc/][【游侠网】《真人快打X》全部终结技]]
-- 学到了两个词：FATALITY（死亡） & HARA KIRI（破腹自杀）
+- 学到了两个词：FATALITY（死亡） & HARA KIRI（剖腹自杀）
 
 #+BEGIN_HTML
 <iframe src="http://www.tudou.com/programs/view/html5embed.action?type=0&code=hByNgDDRmxc&lcode=&resourceId=0_06_05_99" allowtransparency="true" allowfullscreen="true" allowfullscreenInteractive="true" scrolling="no" border="0" frameborder="0" style="width:480px;height:400px;"></iframe>
