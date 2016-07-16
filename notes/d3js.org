@@ -23,6 +23,7 @@ GitHub 是使用 D3 来绘制的。
 
 ** 文章
 - [[http://vegibit.com/create-a-bar-chart-with-d3-javascript/][Create A Bar Chart With D3 JavaScript]]
+
 * 回顾
 ** 使用 D3 画了 TMS Calendar <2016-01-10 日>
 第一次使用 D3 画图，感觉良好！
