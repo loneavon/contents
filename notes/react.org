@@ -10,12 +10,14 @@
 - [[http://www.material-ui.com/][React Material-UI]]
 - [[http://ant.design/][React Ant Design]]
 - [[http://reapp.io/][reapp]]
+- [[https://github.com/ant-design/ant-design/issues/477][Ant Design Users]]
 
 ** 文章
 - [[https://facebook.github.io/react/blog/2013/06/05/why-react.html][Why did we build React?]]
 - [[https://blog.risingstack.com/from-angularjs-to-react-the-isomorphic-way/][From AngularJS to React: The Isomorphic Way]]
 - [[https://github.com/my-fe/wiki/issues/1][百度母婴技术团队—基于 Reactjs 实现 webapp]]
 - [[https://medium.freecodecamp.com/angular-2-versus-react-there-will-be-blood-66595faafd51][Angular 2 versus React: There Will Be Blood]]
+- [[https://github.com/lcxfs1991/blog/issues/8][React移动web极致优化 ]]
 - [[https://segmentfault.com/a/1190000004660725][玩物圈前端技术栈总结（React+Redux）]]
 
 ** 工具
