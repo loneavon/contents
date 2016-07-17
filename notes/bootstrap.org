@@ -73,6 +73,9 @@ Bootstrap 支持四种表单布局：
       $(this).prev().find("i.fa").removeClass("fa-caret-right").addClass("fa-caret-down");
   })
 #+END_SRC
+
+参考：[[http://stackoverflow.com/questions/18147338/twitter-bootstrap-3-0-icon-change-on-collapse][Twitter bootstrap 3.0 icon change on collapse]]
+
 * Scrollspy（滚动监听）
 - [[http://getbootstrap.com/javascript/#scrollspy][Bootstrap Scrollspy]]
 - [[http://jsfiddle.net/gableroux/S2SMK/][模仿 Bootstrap 3 的官方文档实现的滚动监听（JSFiddle）]]
