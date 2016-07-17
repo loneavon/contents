@@ -63,6 +63,16 @@ Bootstrap 支持四种表单布局：
 }
 #+END_SRC
 
+* Collapse（塌陷）
+** 在collapse状态切换时改变元素的样式 <2016-07-17 日>
+#+BEGIN_SRC js
+  $('#collapseExample').on('hidden.bs.collapse', function () {
+      $(this).prev().find("i.fa").removeClass("fa-caret-down").addClass("fa-caret-right");
+  })
+  $('#collapseExample').on('show.bs.collapse', function () {
+      $(this).prev().find("i.fa").removeClass("fa-caret-right").addClass("fa-caret-down");
+  })
+#+END_SRC
 * Scrollspy（滚动监听）
 - [[http://getbootstrap.com/javascript/#scrollspy][Bootstrap Scrollspy]]
 - [[http://jsfiddle.net/gableroux/S2SMK/][模仿 Bootstrap 3 的官方文档实现的滚动监听（JSFiddle）]]
