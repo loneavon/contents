@@ -302,6 +302,21 @@ cursor = connections['minos_db'].cursor()
 * Django Template
 ** extends（继承）
 同 Jinja2
+** 在Django中使用Jinja2 <2016-07-20 三>
+自从某一版本开始，Jinja2作为Django内置支持的一种可选模板，这个做法很好，因
+为Django原生模板（DTL）有些奇怪的禁忌，比如说不能在模板里面调用函数，也不能
+定义变量，导致用户不得不消耗更多的代码在其他地方实现相同的同能。
+
+要在Django中使用Jinja2，要点如下：
+1. 在settings.py中的TEMPLATES配置项添加类型为Jinja2的BACKEND，通过DIRS指定
+   Jinja2模板的路径，通过OPTIONS中的environment来设置Jinja2环境。
+2. 在OPTIONS的environment中设置的py文件中更新Jinja2的全局环境，将static和
+   url作为两个全局函数传入到Jinja2模板里面。
+3. 使用static和url时需要注意，Jinja2下的用法和Django不同，Jinja2下，这两个
+   是函数，需要以函数调用的方式来使用。
+
+参考：[[https://docs.djangoproject.com/ja/1.9/topics/templates/][Django Templates (V1.9)]]
+
 * Django Forms
 - [[https://docs.djangoproject.com/en/1.8/topics/forms/modelforms/][Creating forms from models]] (1.8)
 * Django Logging
