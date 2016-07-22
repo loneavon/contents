@@ -303,9 +303,9 @@ cursor = connections['minos_db'].cursor()
 ** extends（继承）
 同 Jinja2
 ** 在Django中使用Jinja2 <2016-07-20 三>
-自从某一版本开始，Jinja2作为Django内置支持的一种可选模板，这个做法很好，因
+自从某一版本开始，Jinja2成为了Django内置支持的一种可选模板，这个做法很好，因
 为Django原生模板（DTL）有些奇怪的禁忌，比如说不能在模板里面调用函数，也不能
-定义变量，导致用户不得不消耗更多的代码在其他地方实现相同的同能。
+定义变量，导致用户不得不消耗更多的代码在其他地方实现相同的功能。
 
 要在Django中使用Jinja2，要点如下：
 1. 在settings.py中的TEMPLATES配置项添加类型为Jinja2的BACKEND，通过DIRS指定
