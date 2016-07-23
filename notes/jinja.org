@@ -34,4 +34,9 @@ Jinja 内置函数的使用模式基本都是如上的 filter 风格。参考：
 [[./imgs/jinja_1.png]]
 
 
-* 
+* 问题记录
+** 如何实现Nested rendering ？ <2016-07-23 六>
+在Django中使用Jinia时，可以将url传递到模板里面。url是个函数调用，参数是
+"app:view" 类型。假设我们想定义一个macro，传输app名字和view名字，macro里面
+组装出这个url调用，我们写下了如下代码：
+
