@@ -39,4 +39,38 @@ Jinja 内置函数的使用模式基本都是如上的 filter 风格。参考：
 在Django中使用Jinia时，可以将url传递到模板里面。url是个函数调用，参数是
 "app:view" 类型。假设我们想定义一个macro，传输app名字和view名字，macro里面
 组装出这个url调用，我们写下了如下代码：
+#+BEGIN_SRC html
+{% macro admin_section_item(app_name, view_name, title, icon) %}
+    <li class="section-item">
+        <a href="{{ url("{{ app_name }}:{{ view_name }}") }}">
+            <i class="fa fa-{{ icon }}"></i>
+            {{ title }}
+        </a>
+    </li>
+{% endmacro %}
+#+END_SRC
 
+运行后，会报 ~u'{{ app_name }}' is not a registered namespace~ 这样的错误。
+分析了一下，产生错误的原因是Jinja的render只做一次，即{{}}里面的{{}}将不会被
+render。为了寻求解法，我做了很多尝试，也在网上寻求答案，但是都不行。
+- [[http://jinja.pocoo.org/docs/dev/templates/][Template Designer Documentation]]
+- [[http://stackoverflow.com/questions/8862731/jinja-nested-rendering-on-variable-content][Jinja nested rendering on variable content (stackoverflow)]]
+- [[http://stackoverflow.com/questions/20843661/nested-print-statements-in-jinja-template][Nested Print statements in jinja template (stackoverflow)]]
+  
+不得已，我开始找变通，最终轻易地解决了这个问题，那就是：将
+~url("app:view")~ 整体作为参数传入到macro里面。macro的定义和调用如下：
+#+BEGIN_SRC html
+{% macro admin_section_item(page_url, title, icon) %}
+    <li class="section-item">
+        <a href="{{ page_url }}">
+            <i class="fa fa-{{ icon }}"></i>
+            {{ title }}
+        </a>
+    </li>
+{% endmacro %}
+{{ admin_section_item(url('tms:project'), '视频', 'tasks') }}
+#+END_SRC
+
+经验和教训：
+1. 在解决问题的初期就要尝试寻求变通，而不是到了实在无路可走才寻求变通，这样
+   耗费的时间太久，士气也会受损。
