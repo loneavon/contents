@@ -40,3 +40,5 @@
   Flask 的 WSGI 容器。
 - Django: 最早学习的 Python Web 框架，但是感觉太庞杂，所以在技术选型时抛弃
   了它。
+* 记了又忘呵
+在Org插入带精确到分钟的时间戳的指令是： ~C-u C-c .~ 参考：[[http://orgmode.org/manual/Creating-timestamps.html][8.2 Creating timestamps (Org Docs)]]
