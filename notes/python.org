@@ -140,8 +140,7 @@ hours_stats = [{'work': 0, 'study': 0, 'life': 0, 'other': 0}] * 24,
 
 需要注意的时，对于这个新生成的列表，我们改变任何一个元素，都会惊奇地发现其
 他元素也被同步改动了！究其原因，这个列表的每个字典元素其实是引用，它们指向
-的其实是同一块数据。解决的方法
-
+的其实是同一块数据。
 
 * string
 ** 搜索
@@ -345,6 +344,26 @@ tc-mo-xxx.tc 10.26.198.71 xxx.XX.xx 404 0"
 #+END_SRC
 
 ** commands
+
+* 编码
+** 以unicode作为字典的key时的注意点 <2016-07-30 六 21:38>
+我们定义了一个字典，key是汉字。如下：
+#+BEGIN_SRC python
+CATEGORIES_NAME_DICT = {'工作': 'work', '学习': 'study', '生活': 'life', '其他': 'other'}
+#+END_SRC
+
+我们想对这个字段进行取值操作，如下：
+#+BEGIN_SRC py
+category_name = CATEGORIES_NAME_DICT['工作']
+#+END_SRC
+
+这时，程序抛异常，说是 ~KeyError: u'\u5de5\u4f5c'~ 。为了解决这个问题，可以
+通过对字典的真实key和传进去的key执行type操作，发现前者的类型是 *str* ，而后
+者的类型是 *unicode* 。稍微想一下，得出解法：我们需要修改了一下字典定义，在
+key之前加上 *u* 。如下：
+#+BEGIN_SRC 
+CATEGORIES_NAME_DICT = {u'工作': 'work', u'学习': 'study', u'生活': 'life', u'其他': 'other'}
+#+END_SRC
 
 * 问题记录
 ** Mac 下 pip 安装一些模块失败，报"clang: error"
