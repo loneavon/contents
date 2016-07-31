@@ -4,7 +4,7 @@
 
 * 前言
 今年过年在家学了一轮 Ruby on Rails，后来由于兴趣转移，决定专精 Python，于是
-顺手学了一下 Django（顺便帮我表弟完成大作业）
+顺手学了一下 Django。
 
 Django 官网的描述：
 #+BEGIN_QUOTE
@@ -174,7 +174,7 @@ view 调用模板渲染函数时，Django 提供了两个捷径：
    要做类似处理。总之，作为 next 参数的值，url 需要转义。如果没人帮我们转义，
    辣么就要我们自己转义。
 
-* Django Model
+* Django Models
 ** 字段
 - 每个 Model 隐式创建一个 id 字段，它的类型是 AutoField。
 
@@ -261,8 +261,6 @@ select log_module_id, count(base_time), min(base_time), max(base_time) from data
 query_set = DataSlice.objects.values('log_module_id').annotate(max_bt=Max('base_time'), min_bt=Min('base_time'), cnt=Count('base_time'))
 #+END_SRC
 
-
-
 ** Legacy Database（非 Django ORM 生成和管理的数据库）
 所谓 *Legacy Database* 就是指那些以前项目遗留的，没有通过 Django ORM 来生成
 和管理的数据库。Django 提供 inspectdb 命令，来根据 Legacy 数据库的表结构来
@@ -298,6 +296,22 @@ cursor = connections['minos_db'].cursor()
 ** null=True and blank=True
 总结：Django 的 ORM 用起来真是不省心，比 SQLAlchemy 差的有点远。使用 Django
 有种类似大口吃翔的感觉。
+
+** 在Django应用之外使用Django Models <2016-07-31 日 21:41>
+有时候我们写的一些外部脚本想要访问Django管理的数据库，Django提供了方法来在
+第三方脚本里初始化Django环境，使得外部脚本可以像Django应用一样访问Django
+Models。代码如下：
+#+BEGIN_SRC py
+import django
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+django.setup()
+from cms.models import FileItem
+#+END_SRC
+
+说明：
+1. 一定要在 ~django.setup()~ 之后再 ~import Django Models~ 。
+2. 这是一个不得已的做法，一般情况推荐使用Django Management Commands将这些脚
+   本维护起来。
 
 * Django Template
 ** extends（继承）
@@ -493,7 +507,6 @@ MIDDLEWARE_CLASSES = (
 - http://stackoverflow.com/questions/5137042/how-can-i-get-django-to-print-the-debug-information-to-the-console
 - [[https://docs.djangoproject.com/en/1.8/topics/http/middleware/#process-exception][Middleware (Django 1.8)]]
 
-  
 * 问题记录
 ** css 文件有时候需要重启 server 才能生效
 例如：bootstrap.min.css

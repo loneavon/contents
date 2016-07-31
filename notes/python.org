@@ -357,10 +357,10 @@ CATEGORIES_NAME_DICT = {'工作': 'work', '学习': 'study', '生活': 'life', '
 category_name = CATEGORIES_NAME_DICT['工作']
 #+END_SRC
 
-这时，程序抛异常，说是 ~KeyError: u'\u5de5\u4f5c'~ 。为了解决这个问题，可以
-通过对字典的真实key和传进去的key执行type操作，发现前者的类型是 *str* ，而后
-者的类型是 *unicode* 。稍微想一下，得出解法：我们需要修改了一下字典定义，在
-key之前加上 *u* 。如下：
+这时，程序抛异常，说是 ~KeyError: u'\u5de5\u4f5c'~ 。为了方便排查这个问题，
+可以通过对字典的真实key和传进去的key执行type操作，发现前者的类型是 *str* ，
+而后者的类型是 *unicode* 。稍微想一下，得出解法：我们需要修改了一下字典定义，
+在key之前加上 *u* 。如下：
 #+BEGIN_SRC 
 CATEGORIES_NAME_DICT = {u'工作': 'work', u'学习': 'study', u'生活': 'life', u'其他': 'other'}
 #+END_SRC

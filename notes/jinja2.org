@@ -1,4 +1,4 @@
-#+TITLE: Jinja Template System
+#+TITLE: Jinja2 Template System
 #+DATE: 2014-07-30
 #+KEYWORDS: HTML
 
@@ -31,8 +31,24 @@ Jinja 内置函数的使用模式基本都是如上的 filter 风格。参考：
     </h3>
 </div>
 #+END_SRC
-[[./imgs/jinja_1.png]]
 
+#+CAPTION: ./imgs/jinja2_20141005142329.png
+[[./imgs/jinja2_20141005142329.png]]
+
+* Escaping 转义
+** 将HTML不转义直接传递到模板里面 <2016-07-31 日 21:53>
+假设 ~item.output~ 是一段HTML格式的字符串，我们想在模板里面展示这个HTML（不
+是转义后的HTML字符串），我们必须在后面加上 ~|safe~ 。原因是Jinja2会自动为
+这段HTML自动转义，我们需要通过 ~|safe~ 来将其标志位无需转义。
+#+BEGIN_SRC html
+<div>
+    {{ file_item.output|safe }}
+</div>
+#+END_SRC
+
+参考：
+1. [[http://jinja.pocoo.org/docs/dev/templates/#working-with-automatic-escaping][Working with Automatic Escaping (Jinja2 Docs)]]
+2. [[http://stackoverflow.com/questions/3206344/passing-html-to-template-using-flask-jinja2][Passing HTML to template using Flask/Jinja2 (stackoverflow)]]
 
 * 问题记录
 ** 如何实现Nested rendering ？ <2016-07-23 六>
