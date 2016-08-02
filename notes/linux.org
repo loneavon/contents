@@ -2,18 +2,6 @@
 #+DATE: 2014-04-17
 #+KEYWORDS: Linux, Shell
 
-* ulimit
-ulimit 可以用来查看和修改进程的各种资源限制，如栈大小、最大打开文件数等。
-如下：
-#+BEGIN_SRC sh
-ulimit -a # 查看所有资源限制
-ulimit -n # 查看最大打开文件数
-ulimit -n 204800 # 修改最大打开文件数为 204800
-#+END_SRC
-
-任何用户都可以用 ulimit 查看，但是只有 root 才有权用 ulimit 修改，并且，用
-ulimit 修改只针对当前的 ssh 连接有效，一旦退出，期间作的修改就全部作废。
-
 * grep
 ** 速查表
 
@@ -21,7 +9,6 @@ ulimit 修改只针对当前的 ssh 连接有效，一旦退出，期间作的�
 |----------+----------------+-----------------------|
 | 取反     | grep -v        | 全称是 --invert-match |
 | 取相邻行 | grep -A x -B x | A = after, B = before |
-
 
 
 * netstat
@@ -135,7 +122,17 @@ Process 29286 detached
 #define __NR_recvmsg                            47
 #+END_SRC
 
-
+* proc
+** 已知进程id，求其部署位置 <2016-08-02 二 16:17>
+以前只知道，通过 cat /proc/{pid}/cmdline 可以获取其启动命令，如果这个命令使
+用的是相对路径启动，那就无法知道其部署路径了。今天在排查一个 ps -ef hang 住
+的问题时，在 [[https://rachelbythebay.com/w/2014/10/27/ps/][Reading /proc/pid/cmdline can hang forever]] 这篇文章里学到了通
+过 ~ll /proc/{pid}/exe~ 得到进程部署路径的魔法。原来啊，这个exe，它是一个软
+链，它链到真实的binary，ll一下它，可以得到其全路径。
+#+BEGIN_SRC sh
+[root@xxx.yyy.zzz.baidu.com hahaha]# ll /proc/25353/exe
+lrwxrwxrwx  1 mqy mqy 0 Jul 27 18:11 /proc/25353/exe -> /home/mqy/.jumbo/bin/tmux
+#+END_SRC
 
 * 信号
 ** 获取信号全集
@@ -162,6 +159,18 @@ Process 29286 detached
 ** SIGCONT
 有一些进程用 kill -9 都无法杀死（例如 pstack 和 gdb 调试时由于它们意外杀死产生的进程），
 这时候我们可以用 SIGCONT 来杀死它们。
+
+* ulimit
+ulimit 可以用来查看和修改进程的各种资源限制，如栈大小、最大打开文件数等。
+如下：
+#+BEGIN_SRC sh
+ulimit -a # 查看所有资源限制
+ulimit -n # 查看最大打开文件数
+ulimit -n 204800 # 修改最大打开文件数为 204800
+#+END_SRC
+
+任何用户都可以用 ulimit 查看，但是只有 root 才有权用 ulimit 修改，并且，用
+ulimit 修改只针对当前的 ssh 连接有效，一旦退出，期间作的修改就全部作废。
 
 ** 案例：ulimit 与 popen 相关
 我负责的模块遇到一个问题： *popen()频繁返回 NULL* ，进而触发模块 coredump。
