@@ -31,3 +31,19 @@ nmp help install，发现可以直接以github的仓库作为执行参数。
 #+BEGIN_SRC sh
 cnpm install --save fat/zoom.js
 #+END_SRC
+
+* 内容管理
+  
+[[http://f1.market.mi-img.com/download/ThemeMarket/076f8c5084dd4482c00649e97c164a9ac3047005a/%E5%85%AC%E8%B7%AF+%282%29-1.0.0.1.jpg]]
+
+[[http://hbimg.b0.upaiyun.com/21ea641853ca40f3e6f910c05d5ceae0901ecc08d4dc4-WozS5Q_fw658]]
+
+
+#+CAPTION: 课程表
+[[http://elvestar.u.qiniudn.com/xidian-xing-huo-bei_20150409214902.png]]
+
+#+CAPTION: ./imgs/my-site-v3_20160806160116.png
+[[./imgs/my-site-v3_20160806160116.png]]
+
+[[http://3.bp.blogspot.com/-F7dqZbCQU9o/T8zwh16VJVI/AAAAAAAAAAk/r9qX9fqjU9U/s1600/graph-apple-queries.png]]
+
