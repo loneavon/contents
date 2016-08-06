@@ -34,7 +34,7 @@ cnpm install --save fat/zoom.js
 
 * 内容管理
   
-[[http://f1.market.mi-img.com/download/ThemeMarket/076f8c5084dd4482c00649e97c164a9ac3047005a/%E5%85%AC%E8%B7%AF+%282%29-1.0.0.1.jpg]]
+** 图片显示
 
 [[http://hbimg.b0.upaiyun.com/21ea641853ca40f3e6f910c05d5ceae0901ecc08d4dc4-WozS5Q_fw658]]
 
@@ -45,5 +45,22 @@ cnpm install --save fat/zoom.js
 #+CAPTION: ./imgs/my-site-v3_20160806160116.png
 [[./imgs/my-site-v3_20160806160116.png]]
 
-[[http://3.bp.blogspot.com/-F7dqZbCQU9o/T8zwh16VJVI/AAAAAAAAAAk/r9qX9fqjU9U/s1600/graph-apple-queries.png]]
 
+** 其他元素
+*** 引用
+#+BEGIN_QUOTE
+挡在外面，几近于神话的筑城者布兰登修建了长城。一些文献中的记载暗示那个时候
+的绝境长城比现在小得多，守夜人军团随后不断地将其修扩，才达到现在的规模。守
+夜人军团最大的敌人是异鬼，一个神秘的种族，已数千年未见。
+
+
+最近的这个阶段，守夜人军团常被作为罪犯的流放地，充斥着小偷和暴徒，政治流放
+身于军团和人类王国，阻止绝境长城以北的野人侵袭长城以南，他们的古老任务随着
+时间的流逝几乎已被遗忘，被实际的、最新的要务所取代。
+#+END_QUOTE
+
+** Example
+#+BEGIN_EXAMPLE
+书籍是鱼人进步的阶梯。
+                     —— 娜迦海妖 希利苏斯
+#+END_EXAMPLE
