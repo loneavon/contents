@@ -60,9 +60,15 @@ cnpm install --save fat/zoom.js
 [[http://hbimg.b0.upaiyun.com/21ea641853ca40f3e6f910c05d5ceae0901ecc08d4dc4-WozS5Q_fw658]]
 
 
+#+ATTR_HTML: style="width: 320px"
 #+CAPTION: 课程表
 [[http://elvestar.u.qiniudn.com/xidian-xing-huo-bei_20150409214902.png]]
+
 #+CAPTION: 曲线图
+#+ATTR_HTML: style="width: 480px; float: left"
 [[./imgs/my-site-v3_20160806160116.png]]
 
-哈哈哈哈
+洪峰赛风塞森sdf
+
+*** 这个标题是专门用来看上面的漂浮有没有过界的！
+
