@@ -40,12 +40,13 @@
 
 * 三次就医：拆线
 
-
 * 二次就医：拔牙（左面两颗智齿）
 
 * 相关照片
 #+CAPTION: 第一次就诊
+#+ATTR_HTML: style="width: 500px"
 [[./imgs/2016-03-bu-ya-bu-ya_20160303015415.png]]
 
 #+CAPTION: 再见医院
+#+ATTR_HTML: style="width: 500px"
 [[./imgs/2016-03-bu-ya-bu-ya_20160303015236.png]]
