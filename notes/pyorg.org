@@ -103,6 +103,25 @@ Org 的表格模式和 Markdown 几乎一样，就是表头和表体的分隔线
 1. 链接 URL 
 2. 代码/引用等
    
+** link
+#+BEGIN_SRC py
+link = re.compile(
+    r'^(#\+(?:CAPTION|ATTR_HTML): .*\n)*'
+    r'\['
+    r'\[([^\]]+)\]'
+    r'(\[([^\]]+)\])?'
+    r'\]\n?'
+)
+#+END_SRC
+   
+说明：
+1. link包括图片，URL链接，org内链等一切[[]]这种样式的行内元素。
+2. 如果link是图片，则会尝试解析其CAPTION/ATTR_HTML，这些标签记录了图片的标题和自
+   定义样式（如宽度、漂浮等）。
+3. 尾部的 ~\n?~ 用来解决相邻无换行的多个link的解析问题，因为它们会被解析到
+   同一个块级元素：段落里面，如果不匹配到末尾的 \n ，会导致下一个link的
+   CAPTION和ATTR_HTML无法被匹配到。
+   
 * 代码高亮
 使用 Pygments：
 - [[http://pygments.org/]]
