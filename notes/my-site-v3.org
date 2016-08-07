@@ -36,15 +36,15 @@ cnpm install --save fat/zoom.js
   
 ** 图片显示
 
+#+CAPTION: hehehe
 [[http://hbimg.b0.upaiyun.com/21ea641853ca40f3e6f910c05d5ceae0901ecc08d4dc4-WozS5Q_fw658]]
 
 
 #+CAPTION: 课程表
 [[http://elvestar.u.qiniudn.com/xidian-xing-huo-bei_20150409214902.png]]
 
-#+CAPTION: ./imgs/my-site-v3_20160806160116.png
+#+CAPTION: 曲线图
 [[./imgs/my-site-v3_20160806160116.png]]
-
 
 ** 其他元素
 *** 引用

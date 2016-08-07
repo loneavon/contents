@@ -95,7 +95,6 @@ Org 的表格模式和 Markdown 几乎一样，就是表头和表体的分隔线
 | td1  | td2  |
 #+END_SRC
   
-
 * 行内元素
 确保每个块级元素的每个文本部分都经过行内元素规则的解析和转化，例如表格的每
 个 td，列表的每一列，段落那就更不用说了，那是用刑的主体。
@@ -127,6 +126,12 @@ except ValueError:
     lexer = get_lexer_by_name('text')
 result = highlight(code, lexer, formatter)
 #+END_SRC
+
+* 元素修饰：CAPTION和ATTR_HTML
+规则：
+1. 以 ~#+ATTR_HRML:~ 或 ~#+CAPTION:~ 作为开始。
+2. 以空行或者标题行或者下一个 ~#+ATTR_HRML:~ 或 ~#+CAPTION:~ 作为结束标志。
+3. 可以修饰任何块级元素。
 
 * 问题记录
 ** 使用 BS4 为 BEGIN_HTML 生成节点时，部分文字会变成乱码
