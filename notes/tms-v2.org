@@ -112,6 +112,7 @@ select category, project, count(time_cost), sum(time_cost) from clock_item where
 
 *** 图表：展示一周用时分布的带环饼状图
 #+CAPTION: ./imgs/tms-v2_20160513170610.png
+#+ATTR_HTML: style="width: 500px"
 [[./imgs/tms-v2_20160513170610.png]]
 
 1. 展示一天用时分布的带环饼状图
@@ -129,8 +130,7 @@ npm install d3 --save
 npm install cal-heatmap --save
 #+END_SRC
 
-最终结果：
-#+CAPTION: ./imgs/tms-v2_20160529160907.png
+#+CAPTION: 最终结果
 [[./imgs/tms-v2_20160529160907.png]]
 
 * 回顾

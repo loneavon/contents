@@ -60,7 +60,7 @@ cnpm install --save fat/zoom.js
 [[http://hbimg.b0.upaiyun.com/21ea641853ca40f3e6f910c05d5ceae0901ecc08d4dc4-WozS5Q_fw658]]
 
 
-#+ATTR_HTML: class="half-left-float" style="width: 300px"
+#+ATTR_HTML: class="half-left-float img-center" style="width: 300px"
 #+CAPTION: 课程表
 [[http://elvestar.u.qiniudn.com/xidian-xing-huo-bei_20150409214902.png]]
 由于本软件是在手机上运行的，可以随时携带，而且是按周显示的，学生可以随时查
