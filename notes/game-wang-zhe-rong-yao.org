@@ -181,7 +181,7 @@ LOL里面的安妮一模一样，带着一只熊，主要靠糊人熊脸。又�
 #+CAPTION: 我的游戏ID叫做：小乔 [电脑]
 [[./imgs/game-wang-zhe-rong-yao_20160809235621.png]]
 
-#+CAPTION: 召唤师等级达到30级
+#+CAPTION: 召唤师等级达到30级！
 [[./imgs/game-wang-zhe-rong-yao_20160809235140.png]]
 
 #+CAPTION: 铭文就是力量！
