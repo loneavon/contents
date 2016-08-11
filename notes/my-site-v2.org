@@ -3,7 +3,7 @@
 
 * 图片
 ** 悬浮（文字包围）
-#+ATTR_HTML: :class half-left-float
+#+ATTR_HTML: class="half-left-float"
 #+CAPTION: Chaconne in D minor - Hélène Grimaud
 [[./imgs/my-site-v2_20160214124908.png]]
 
