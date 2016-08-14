@@ -333,6 +333,13 @@ from cms.models import FileItem
 
 * Django Forms
 - [[https://docs.djangoproject.com/en/1.8/topics/forms/modelforms/][Creating forms from models]] (1.8)
+** Django Forms应用经验 <2016-08-14 日 22:22>
+1. 在模板中通过 {{ form.xxx }} 可以直接渲染出表单字段的HTML（不带Label）。
+2. 通过 {{ form.xxx.label }} 可以取到表单字段的标签，如果是ModelForm，那么
+   就取Model字段的 ~verbose_name~ 属性，如果没设置它，则取Model字段名的首字
+   母大写形式。
+3. 
+
 * Django Logging
 - [[https://docs.djangoproject.com/en/1.7/topics/logging/]]
 ** Django 使用 Python 内建的 logging 模块 <2015-03-31 二>
