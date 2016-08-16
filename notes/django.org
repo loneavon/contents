@@ -372,6 +372,9 @@ def order_book(request):
 参考：
 1. [[https://docs.djangoproject.com/ja/1.10/topics/forms/formsets/][Formsets | Django documentation | Django]]
 
+** 处理ModelForm中的Foreign Key字段 <2016-08-16 二 22:28>
+要点：
+1. ModelForm会自动将Foreign Key字段转化为Select
 * Django Logging
 - [[https://docs.djangoproject.com/en/1.7/topics/logging/]]
 ** Django 使用 Python 内建的 logging 模块 <2015-03-31 二>
