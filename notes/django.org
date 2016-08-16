@@ -340,6 +340,35 @@ from cms.models import FileItem
    母大写形式。
 3. 
 
+** 如何在一次请求提交多个表单？ <2016-08-16 二 20:23>
+要点：
+1. 在view里面通过prefix定义不同的表单。
+2. 在模板里面将不同的表单的字段写到同一个<form>标签内。
+3. 在view里面通过多次使用request.POST以及不同的prefix（起过滤作用）来构造不
+   同的表单。
+
+#+BEGIN_SRC py
+def order_book(request):
+    if request.method == 'POST':
+        add_book_form = AddBookForm(request.POST, prefix='add_book')
+        order_book_form = OrderBookForm(request.POST, prefix='order_book')
+        if add_book_form.is_valid() and order_book_form.is_valid():
+            book = Book.objects.filter(isbn=add_book_form.cleaned_data['isbn']).first()
+            if book is None:
+                book = add_book_form.save()
+                messages.info(request, 'Success to add book: %s' % book.isbn)
+            book_order = order_book_form.save()
+            messages.info(request, 'Success to order book: %s' % book_order.location)
+            return redirect('/book/my_books')
+    else:
+        add_book_form = AddBookForm(prefix='add_book')
+        order_book_form = OrderBookForm(prefix='order_book')
+    return render(request, 'book/order.html', {
+        'add_book_form': add_book_form,
+        'order_book_form': order_book_form,
+    })
+#+END_SRC
+
 * Django Logging
 - [[https://docs.djangoproject.com/en/1.7/topics/logging/]]
 ** Django 使用 Python 内建的 logging 模块 <2015-03-31 二>
