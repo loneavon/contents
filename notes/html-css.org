@@ -16,10 +16,12 @@
 * img
 ** 在浏览器端将图片链接转化为BASE64形式并传递到后端 <2016-08-16 二 15:19>
 要点：
-1. 现通过img的url来构造canvas，再通过canvas的 ~toDataURL~ 生成BASE64编码。
+1. 先通过img的url来构造canvas，再通过canvas的 ~toDataURL~ 生成BASE64编码。
 2. img必须将 ~crossOrigin~ 设置为Anonymous，否则会报 ~tainted canvases may not be
    exported~ 这样的错误。
-3. img的url的远端服务器必须设置 ~Access-Control-Allow-Origin~ 
+3. 提供img的远端服务器必须在返回img时在header设置
+   ~Access-Control-Allow-Origin~ 。
+
 #+BEGIN_SRC html
 <div class="form-group">
     <label class="col-md-2 control-label">封面</label>
