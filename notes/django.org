@@ -641,6 +641,17 @@ ADMINS = (('Zhong Yi', 'zhongyi@xxx.com'),)
 
 使用 Django 经常给你来个惊异，然后耗费掉你大量时间。
 
+** [Errno socket error] [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:590) <2016-08-17 三 02:49>
+我使用Django cas实现单点登录时，将cas server指向公司的测试服务器地址，结果
+报了上面的错误。网上搜了一下，别人说这是Mac下的OpenSSL升级导致产生了不兼容
+的问题。我通过brew重装了OpenSSL，发现搞不定。
+
+最后，我在 https://github.com/servo/servo/issues/5917 一文中找到了几行代码，
+粘贴到views.py的开始处，发现问题解决了。
+#+BEGIN_SRC py
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+#+END_SRC
 
 * 回顾
 ** 看完了官方 Tutorial <2014-03-01 六>
