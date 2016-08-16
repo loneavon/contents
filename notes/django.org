@@ -374,7 +374,34 @@ def order_book(request):
 
 ** 处理ModelForm中的Foreign Key字段 <2016-08-16 二 22:28>
 要点：
-1. ModelForm会自动将Foreign Key字段转化为Select
+1. ModelForm会自动将Foreign Key字段转化为<select>。
+2. 在ModelForm的init函数中填充<select>的options。
+
+下面的例子中，book和location都是Foreign Key。
+#+BEGIN_SRC py
+class BookOrder(models.Model):
+    username = models.CharField(max_length=255, default='')
+    book = models.ForeignKey('Book')
+    order_batch = models.ForeignKey('OrderBatch')
+    order_time = models.DateTimeField(default=datetime.now(), blank=True)
+    location = models.ForeignKey('Location')
+    status = models.CharField(max_length=255, default='unfinished')
+
+    def __str__(self):
+        return (u'%s - %s' % (self.username, self.book.title)).encode('utf-8')
+
+
+class OrderBookForm(ModelForm):
+    class Meta:
+        model = BookOrder
+        fields = ['username', 'book', 'order_batch', 'order_time', 'location']
+
+        widgets = {
+            'location': widgets.Select(attrs={'class': 'form-control'}),
+            'order_batch': widgets.Select(attrs={'class': 'form-control'}),
+        }
+#+END_SRC
+
 * Django Logging
 - [[https://docs.djangoproject.com/en/1.7/topics/logging/]]
 ** Django 使用 Python 内建的 logging 模块 <2015-03-31 二>
