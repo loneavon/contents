@@ -402,6 +402,30 @@ class OrderBookForm(ModelForm):
         }
 #+END_SRC
 
+** 提交表单后，在views中检验表单前，修改表单字段值 <2016-08-17 三 18:39>
+这块折腾了许久，终于搞定了，记一下要点：
+1. request.POST是一个immutable的QueryDict，通过它生成的表单是无法被修改，需
+   要通过 ~request.POST = request.POST.copy()~ 来将其改为 mutable 的，进而
+   生成可被修改的表单。
+2. form有cleaned_data和data两个属性，前者只有在调用form.is_valid()后才能被访
+   问。
+3. form可以通过initial设定的初始值，但这只能用来设定初始值，而不能通过它来
+   修改已提交的form的字段值。
+4. 结论：在调用form.is_valid()之前通过form.data['xxx']来修改字段值。
+5. 补充：如果构造表单时设置了prefix，那么通过form.data['xxx']取字段时，字段
+   名需要同步地加上前缀。
+   
+#+BEGIN_SRC py
+  ...
+  order_book_form.data['order_book-book'] = book.id
+  if order_book_form.is_valid():
+      book_order = order_book_form.save()
+      messages.info(request, 'Success to order book: %s' % book_order.location)
+      return redirect('/book/my_books')
+  ...
+#+END_SRC
+感想：Django的form是很便利的，但是Django的学习成本确实很高。
+
 * Django Logging
 - [[https://docs.djangoproject.com/en/1.7/topics/logging/]]
 ** Django 使用 Python 内建的 logging 模块 <2015-03-31 二>
