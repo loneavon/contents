@@ -338,7 +338,7 @@ from cms.models import FileItem
 2. 通过 {{ form.xxx.label }} 可以取到表单字段的标签，如果是ModelForm，那么
    就取Model字段的 ~verbose_name~ 属性，如果没设置它，则取Model字段名的首字
    母大写形式。
-3. 
+3. 只有在执行is_valid()之后，才能访问form的cleaned_data。
 
 ** 如何在一次请求提交多个表单？ <2016-08-16 二 20:23>
 要点：
