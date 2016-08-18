@@ -426,6 +426,33 @@ class OrderBookForm(ModelForm):
 #+END_SRC
 感想：Django的form是很便利的，但是Django的学习成本确实很高。
 
+** 如何非form中发起POST请求时关闭csrf保护以解决403错误？ <2016-08-18 四 23:39>
+在<form>中，可以加上 ~{% csrf_token %}~ 来实现跨站请求伪造保护，默认情况下，
+Django后端是要求全部的POST情况都带上csrf_token的。但是有时候，我们并不是在表
+单中发起POST情况，csrf_token就不方便加上，我们可以关闭csrf。关闭csrf很简单，
+就是在settings.py中去掉 ~django.middleware.csrf.CsrfViewMiddleware~ 即可，
+但是这样的话，会导致全部请求的csrf被关闭，这会带来一定的风险。我们可以只针
+对特定的views关闭csrf，方法就是使用修饰器 ~@csrf_exempt~ 。具体如下：
+
+#+BEGIN_SRC py
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def notification(request):
+    event = request.POST['event']
+    if event in ['arrival', 'shortage']:
+        order_id = request.POST['id']
+        book_order = get_object_or_404(BookOrder, pk=order_id)
+        book_order.status = event
+        book_order.save()
+        return JsonResponse({'order_status': book_order.status})
+    return HttpResponse(event)
+#+END_SRC
+
+参考：
+1. [[http://stackoverflow.com/questions/6800894/django-returns-403-error-when-sending-a-post-request][python - Django returns 403 error when sending a POST request - Stack Overflow]]
+2. [[https://docs.djangoproject.com/en/1.10/ref/csrf/][Cross Site Request Forgery protection | Django documentation | Django]]
+
 * Django Logging
 - [[https://docs.djangoproject.com/en/1.7/topics/logging/]]
 ** Django 使用 Python 内建的 logging 模块 <2015-03-31 二>
