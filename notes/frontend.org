@@ -181,6 +181,23 @@ $('#form_add_log').bind('submit', function() {
 1. 将表单 POST 到后台的数据格式是 k1=v1&k2=v2&....，通过 serialize() 函数可以转换
 2. 各字段需要进行 URL encode，JS 的相关函数是：encodeURIComponent()
 
+* window
+** 简单地实现 confirm dialog <2016-08-20 六 23:52>
+当用户点击一个按钮时，有时候需要提供给用户一个确认对话框。这个确认对话框可
+以通过第三方库实现，也可以通过Bootstrap的Modal手工实现，不过感觉这些方式都
+略显麻烦。
+
+有一种一行代码实现确认对话框的魔法，那就是使用windows.confirm。示例如下：
+#+BEGIN_SRC js
+if (window.confirm('确定取消申购图书【' + book_title + '】？')) {
+    $.post('{% url 'book:order_abandon' %}', {
+        'order_id': order_id
+    }, function(data) {
+        alert(data.msg);
+    });
+}
+#+END_SRC
+
 * 问题记录
 ** href, button, type="submit" and POST
 当我们想通过$.ajax()或$.post()等方式来向后端发起请求时，要保证发起该 JS 函数的元素
