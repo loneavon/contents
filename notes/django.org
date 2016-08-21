@@ -427,7 +427,7 @@ class OrderBookForm(ModelForm):
 感想：Django的form是很便利的，但是Django的学习成本确实很高。
 
 ** 如何非form中发起POST请求时关闭csrf保护以解决403错误？ <2016-08-18 四 23:39>
-在<form>中，可以加上 ~{% csrf_token %}~ 来实现跨站请求伪造保护，默认情况下，
+在form中，可以加上 ~{% csrf_token %}~ 来实现跨站请求伪造保护，默认情况下，
 Django后端是要求全部的POST情况都带上csrf_token的。但是有时候，我们并不是在表
 单中发起POST情况，csrf_token就不方便加上，我们可以关闭csrf。关闭csrf很简单，
 就是在settings.py中去掉 ~django.middleware.csrf.CsrfViewMiddleware~ 即可，
