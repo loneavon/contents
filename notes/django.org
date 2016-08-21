@@ -331,6 +331,16 @@ from cms.models import FileItem
 
 参考：[[https://docs.djangoproject.com/ja/1.9/topics/templates/][Django Templates (V1.9)]]
 
+** 自定义filter和tag <2016-08-22 一 04:08>
+要点：
+1. 将filter和tag的定义单独放到和views.py平行的目录templatetags里面，文件名
+   可以任取，例如叫xxx。
+2. 在使用到该filter和tag的模板里执行 {% load xxx %}。注意，不要认为在
+   base.html里面load一次就够了。
+3. 下面就是具体用法的事情了。
+
+参考：[[https://docs.djangoproject.com/en/1.10/howto/custom-template-tags/][Custom template tags and filters | Django documentation | Django]]
+
 * Django Forms
 - [[https://docs.djangoproject.com/en/1.8/topics/forms/modelforms/][Creating forms from models]] (1.8)
 ** Django Forms应用经验 <2016-08-14 日 22:22>
