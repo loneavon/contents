@@ -704,6 +704,23 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 #+END_SRC
 
+** 首次线上部署时，执行 python manage.py makemigrations 没有如预期地生成迁移指令 <2016-08-21 日 19:33>
+原因：开发环境下，我们通过startapp来新增应用，这个指令会生成一个migrations
+目录，这个步骤是迁移初始化。没有这个步骤，执行 ~python manage.py
+makemigrations~ 是不会发现models的diff并生成数据库迁移指令的。 
+
+当我们将应用部署到线上是，则不会执行startapp，而是直接从代码库拉取代码，而
+且线上环境和开发环境的migrations目录不会共用。这就导致了首次线上部署是没有
+经过迁移初始化的步骤，进而导致标题上提到的这个问题。
+
+解决方法很简单，以应用标签为参数再执行一篇。例如：
+#+BEGIN_SRC sh
+python manage.py makemigrations book
+#+END_SRC
+
+参考：
+1. [[http://stackoverflow.com/questions/23068275/migrations-in-django-1-7][Migrations in Django 1.7 - Stack Overflow]]
+2. [[https://docs.djangoproject.com/en/1.10/topics/migrations/#adding-migrations-to-apps][Migrations | Django documentation | Django]]
 * 回顾
 ** 看完了官方 Tutorial <2014-03-01 六>
 Django 的官方 Tutorial 写得确实很赞，我照着它很流畅地学完了 Django。下一步我会寻求
