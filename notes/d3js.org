@@ -26,7 +26,7 @@ GitHub 是使用 D3 来绘制的。
 - [[http://vegibit.com/create-a-bar-chart-with-d3-javascript/][Create A Bar Chart With D3 JavaScript]]
 
 * D3学习
-** Learning D3.JS - DecemberCafe
+** Learning D3.JS - DecemberCafe <2016-09-04 日>
 1. 绑定：将数据绑定到选择集上，方便 *后续* 操作。datum是一绑多，而data是多
    绑多，将一个数据集绑定到一个选择集上。data更常用。
 2. 插入append：在选择集的最后一个孩子元素之前插入一个元素（注意不是选择集自
@@ -40,13 +40,21 @@ GitHub 是使用 D3 来绘制的。
 5. d3.svg.axis用来绘制坐标轴，可以通过.scale()指定坐标轴的比例尺，使用.orient()
    指定坐标轴刻度线的朝向，使用.ticks()指定可读的数量。一直绘制完成的坐标轴，
    包块一个path，多个line（刻度），刻度文字，还有分组元素<g>。
+6. D3把动态效果叫做过渡（transition），相关方法有四个：transition（启用过
+   渡），duration（指定过渡时间），ease（指定过渡的方式），delay（指定延时
+   的时间）
 
-** TensorFlow Playgroud分析 <2016-09-04 日>
+** TensorFlow Playgroud分析 <2016-09-04 日 16:09>
    
 TensorFlow是Google开源的一款机器学习的库，而 [[http://playground.tensorflow.org/][TensorFlow Playground]] 则是将
 TensorFlow的神经网络进行可视化展现的一个工具，效果很炫。它是用D3和
 TypeScript编写，UI使用了Google的MDL。可以借助它来了解一下D3的用法。
 
+分析要点：
+1. 如何确定元素在坐标？
+2. 元素之前有何分组关系？
+3. 点击Play后的动态效果是如何实现？
+4. 
 
 
 * 回顾
