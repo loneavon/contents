@@ -20,16 +20,21 @@ GitHub 是使用 D3 来绘制的。
 - http://d3js.org/
 - https://github.com/mbostock/d3
 - [[https://github.com/mbostock/d3/wiki/API--%25E4%25B8%25AD%25E6%2596%2587%25E6%2589%258B%25E5%2586%258C][D3 API 中文手册]]
+- [[http://d3.decembercafe.org/index.html][Learning D3.JS - DecemberCafe]]
 
 ** 文章
 - [[http://vegibit.com/create-a-bar-chart-with-d3-javascript/][Create A Bar Chart With D3 JavaScript]]
 
-* 案例学习
+* D3学习
+** Learning D3.JS - DecemberCafe
+1. 绑定：将数据绑定到选择集上，方便 *后续* 操作。datum是一绑多，而data是多
+   绑多，将一个数据集绑定到一个选择集上。data更常用。
+
 ** TensorFlow Playgroud分析 <2016-09-04 日>
    
 TensorFlow是Google开源的一款机器学习的库，而 [[http://playground.tensorflow.org/][TensorFlow Playground]] 则是将
 TensorFlow的神经网络进行可视化展现的一个工具，效果很炫。它是用D3和
-TypeScript编写，可以借助它来了解一下D3的用法。
+TypeScript编写，UI使用了Google的MDL。可以借助它来了解一下D3的用法。
 
 
 
