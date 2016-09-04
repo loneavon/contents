@@ -24,6 +24,15 @@ GitHub 是使用 D3 来绘制的。
 ** 文章
 - [[http://vegibit.com/create-a-bar-chart-with-d3-javascript/][Create A Bar Chart With D3 JavaScript]]
 
+* 案例学习
+** TensorFlow Playgroud分析 <2016-09-04 日>
+   
+TensorFlow是Google开源的一款机器学习的库，而 [[http://playground.tensorflow.org/][TensorFlow Playground]] 则是将
+TensorFlow的神经网络进行可视化展现的一个工具，效果很炫。它是用D3和
+TypeScript编写，可以借助它来了解一下D3的用法。
+
+
+
 * 回顾
 ** 使用 D3 画了 TMS Calendar <2016-01-10 日>
 第一次使用 D3 画图，感觉良好！
